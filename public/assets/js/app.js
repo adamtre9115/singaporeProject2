@@ -61,7 +61,7 @@ function readData() {
 $("***NEW QUOTE***").on("click", function newQuote() {
 
 
-    console.log("Inserting new product...\n");
+    console.log("Inserting new quote...\n");
     var query = connection.query(
         "INSERT INTO quotes SET ?", {
             quote: $("***USER QUOTE INPUT***").val().trim(),
@@ -75,11 +75,32 @@ $("***NEW QUOTE***").on("click", function newQuote() {
 });
 
 // Delete from SQL when User clicks delete button
+$("***DELETE QUOTE***").on("click", function deleteQuote() {
+    console.log("Deleting quote...\n");
+    connection.query(
+        "DELETE FROM quotes WHERE ?", {
+            id: this.id // ******** Need to test & prob change this ********
+        },
+        function (err, res) {
+            console.log(res.affectedRows + " Quotes deleted!\n");
+        }
+    );
+});
+
 // Checkbox on side to select quotes
+var checkedQuote = $("***Checkbox.Quote***").val() // ***** Not sure exactly how to work this *****
 // Click event for button below table to select the checked quotes
-// When quotes selected Pop up box
-// Grab input for time (make it required before submitting)
+$("***SELECT CHECKED BOXES***").on("click", function notifTime() {
+    // When quotes selected Pop up box
+
+});
+
+
 // Click event for submit and send info to twilio api 
+$("***SUBMIT TIMES***").on("click", function submitTimes() {
+    // Grab input for time (make it required before submitting)
+});
+
 
 // -------- Random --------
 // Click event to call api when clicked 
@@ -89,5 +110,11 @@ $("***NEW QUOTE***").on("click", function newQuote() {
 
 // -------- Quick Quote --------
 // Click event to open form 
+$("***QUICK QUOTE***").on("click", function quickQuote() {
+    // Open form
+});
 // Grab user input for text and time and send data to twilio
+$("***QQ SUBMIT***").on("click", function () {
+
+});
 // Option to store in SQL (checkbox maybe)
