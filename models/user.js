@@ -1,6 +1,6 @@
-const Sequelize = require("sequelize");
-const bycrypt = require("bcrypt-nodejs");
-const connection = require("../config/config.json");
+// const Sequelize = require("sequelize");
+// const bycrypt = require("bcrypt-nodejs");
+// const connection = require("../config/config.json");
 
 
 module.exports = function (sequelize, DataTypes) {
@@ -16,6 +16,10 @@ module.exports = function (sequelize, DataTypes) {
         },
         password: {
             type: DataTypes.TEXT,
+            allowNull: false
+        },
+        createdAt: {
+            type: DataTypes.DATE,
             allowNull: false
         }
     });
