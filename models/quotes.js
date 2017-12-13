@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var quotes = sequelize.define("quotes", {
+    var Quote = sequelize.define("quotes", {
         id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
@@ -13,5 +13,5 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.TEXT
         }
     });
-    return quotes;
+    return Quote;
 }

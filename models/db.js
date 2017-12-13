@@ -21,17 +21,10 @@ db.sequelize = sequelize;
 db.quotes = require("./quotes.js")(sequelize, Sequelize);
 db.users = require("./user.js")(sequelize, Sequelize);
 
-
 // relations
-// db.quotes.belongsTo(db.users, {
-//     foreignKey: "userName",
-//     // sourceKey: "user_id"
-// });
+db.quotes.belongsTo(db.users);
 db.users.hasMany(db.quotes, {
-    as: "allQuotes",
-    foreignKey: "userId"
+    as: 'Quotes'
 });
-
-
 
 module.exports = db;
