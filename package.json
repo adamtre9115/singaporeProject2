@@ -26,7 +26,11 @@
     "express": "^4.16.2",
     "morgan": "^1.9.0",
     "mysql2": "^1.5.1",
+<<<<<<< HEAD
     "sequelize": "^4.28.0",
+=======
+    "sequelize": "^4.27.0",
+>>>>>>> 5ff3b5980b4e00c7118b78bd2d9ca567389cc58e
     "serve-favicon": "^2.4.5"
   }
 }

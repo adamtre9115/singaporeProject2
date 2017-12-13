@@ -6,6 +6,7 @@
     "port": "3306",
     "dialect": "mysql",
     "database": "quotes_db"
+<<<<<<< HEAD
   },
   "dale": {
     "username": "root",
@@ -14,5 +15,7 @@
     "port": "8889",
     "dialect": "mysql",
     "database": "quotes_db"
+=======
+>>>>>>> 5ff3b5980b4e00c7118b78bd2d9ca567389cc58e
   }
 }
