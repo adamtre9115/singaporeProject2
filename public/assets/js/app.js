@@ -4,16 +4,14 @@
 $("***LOGIN SUBMIT***").on("click", function (e) {
     e.preventDefault();
     // Grab Username
-    var userID = $("***USER ID***").val().trim();
+    var userID = $("***USER ID***").val();
     // Grab password
-    var password = $("***USER PASSWORD***").val().trim();
+    var password = $("***USER PASSWORD***").val();
     // Send to firebase
 });
 
 
-
-
-// -------- Main -------- 
+// -------- Main ---------
 
 // Option Selection (Go to Table, Random Quote, Quick Quote)
 // Event to got to table page
@@ -25,9 +23,9 @@ $("***GO TO TABLE***").on("click", function (e) {
 $("***RANDOM***").on("click", function (e) {
     e.preventDefault();
     // Grab API quote
-    var randQuote = "*** API CALL ***";
+    var randQuote = "*** API CALL ***"; // Import this
     // Get time
-    var sendTime = $("***TIME INPUT***").val().trim();
+    var sendTime = $("***TIME INPUT***").val();
     // Send info to twilio 
 });
 $("***QUICK QUOTE***").on("click", function (e) {
@@ -64,7 +62,7 @@ $("***NEW QUOTE***").on("click", function newQuote() {
     console.log("Inserting new quote...\n");
     var query = connection.query(
         "INSERT INTO quotes SET ?", {
-            quote: $("***USER QUOTE INPUT***").val().trim(),
+            quote: $("***USER QUOTE INPUT***").val(),
             time: CURRENT_TIME
         },
         function (err, res) {
@@ -99,6 +97,7 @@ $("***SELECT CHECKED BOXES***").on("click", function notifTime() {
 // Click event for submit and send info to twilio api 
 $("***SUBMIT TIMES***").on("click", function submitTimes() {
     // Grab input for time (make it required before submitting)
+    var time = $("***TIME FIELD***").val();
 });
 
 
@@ -108,13 +107,51 @@ $("***SUBMIT TIMES***").on("click", function submitTimes() {
 // ^^^^ If so grab user input and send to twilio api ^^^^
 // **** otherwise send at random time during day and pass info to twilio****
 
+
+// -------- Twilio Account Info --------
+
+const accountSid = 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
+const authToken = 'your_auth_token';
+const client = require('twilio')(accountSid, authToken);
+
+
 // -------- Quick Quote --------
+
 // Click event to open form 
 $("***QUICK QUOTE***").on("click", function quickQuote() {
     // Open form
+    var quote = $("***QUOTE FIELD***").val();
+    var time = $("***TIME FIELD***").val();
+    var phoneNum = $("***PHONE FIELD***").val();
+    client.messages.create({
+            body: quote,
+            to: '+' + phoneNum,
+            from: '+' + phoneNum,
+            // mediaUrl: 'http://www.example.com/hearts.png',
+        })
+        .then((message) => process.stdout.write(message.sid));
 });
 // Grab user input for text and time and send data to twilio
 $("***QQ SUBMIT***").on("click", function () {
 
 });
 // Option to store in SQL (checkbox maybe)
+
+// -------- Checkbox --------
+
+// Make sure checkbox is checked
+function check() {
+    // If not ingnore field
+    // Grab quote out of checked box
+    for (var i = 1; i < table.rows.length; i++) {
+        if ($('***CHECKBOX***')[i].is(':checked')) { // Maybe able to use THIS.CHECKED
+            value_check += i + ": " + $('***CHECKBOX***')[i].val();
+            // Alert(this.value) <-- maybe
+        }
+    }
+}
+
+// ######## Probably don't need this ########
+// function check() {
+//     $("#myCheck").checked = true;
+// }
