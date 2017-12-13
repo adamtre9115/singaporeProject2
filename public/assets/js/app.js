@@ -1,12 +1,12 @@
 // -------- Log In --------
 
 // Grab User Log In & Event to go to main page
-$("***LOGIN SUBMIT***").on("click", function (e) {
+$("#regSubmit").on("click", function (e) {
     e.preventDefault();
     // Grab Username
-    var userID = $("***USER ID***").val();
+    var userID = $("#regID").val();
     // Grab password
-    var password = $("***USER PASSWORD***").val();
+    var password = $("#regPassword").val();
     // Send to firebase
 });
 
@@ -15,22 +15,26 @@ $("***LOGIN SUBMIT***").on("click", function (e) {
 
 // Option Selection (Go to Table, Random Quote, Quick Quote)
 // Event to got to table page
-$("***GO TO TABLE***").on("click", function (e) {
+$("#quoteTable").on("click", function (e) {
     e.preventDefault();
     // Route to table
+
 });
 // Random & Quick Quote
-$("***RANDOM***").on("click", function (e) {
+$("#randQuote").on("click", function (e) {
     e.preventDefault();
     // Grab API quote
     var randQuote = "*** API CALL ***"; // Import this
     // Get time
-    var sendTime = $("***TIME INPUT***").val();
+    var sendTime = $("#randTime").val();
+    // Get phone number
+    var randPhone = $("#randPhone").val();
     // Send info to twilio 
 });
-$("***QUICK QUOTE***").on("click", function (e) {
+$("#quickQuote").on("click", function (e) {
     e.preventDefault();
-    // Route to table
+    // Popup/form for quick quote
+    quickQuote();
 });
 
 
@@ -56,7 +60,7 @@ function readData() {
     )
 }
 // Grab User Input and Add to SQL (Click event to submit)
-$("***NEW QUOTE***").on("click", function newQuote() {
+$("#addQuote").on("click", function newQuote() {
 
 
     console.log("Inserting new quote...\n");
@@ -73,7 +77,7 @@ $("***NEW QUOTE***").on("click", function newQuote() {
 });
 
 // Delete from SQL when User clicks delete button
-$("***DELETE QUOTE***").on("click", function deleteQuote() {
+$("#deleteQuote").on("click", function deleteQuote() {
     console.log("Deleting quote...\n");
     connection.query(
         "DELETE FROM quotes WHERE ?", {
@@ -88,16 +92,17 @@ $("***DELETE QUOTE***").on("click", function deleteQuote() {
 // Checkbox on side to select quotes
 var checkedQuote = $("***Checkbox.Quote***").val() // ***** Not sure exactly how to work this *****
 // Click event for button below table to select the checked quotes
-$("***SELECT CHECKED BOXES***").on("click", function notifTime() {
+$("#quoteCheck").on("click", function notifTime() {
     // When quotes selected Pop up box
 
 });
 
 
 // Click event for submit and send info to twilio api 
-$("***SUBMIT TIMES***").on("click", function submitTimes() {
+$("#submitTimes").on("click", function submitTimes() {
     // Grab input for time (make it required before submitting)
-    var time = $("***TIME FIELD***").val();
+    var time = $("#selectTime").val();
+    var userPhone = $("#userPhone").val();
 });
 
 
@@ -118,11 +123,11 @@ const client = require('twilio')(accountSid, authToken);
 // -------- Quick Quote --------
 
 // Click event to open form 
-$("***QUICK QUOTE***").on("click", function quickQuote() {
+function quickQuote() {
     // Open form
-    var quote = $("***QUOTE FIELD***").val();
-    var time = $("***TIME FIELD***").val();
-    var phoneNum = $("***PHONE FIELD***").val();
+    var quote = $("#qqInput").val();
+    var time = $("#qqTime").val();
+    var phoneNum = $("#qqPhone").val();
     client.messages.create({
             body: quote,
             to: '+' + phoneNum,
@@ -130,9 +135,9 @@ $("***QUICK QUOTE***").on("click", function quickQuote() {
             // mediaUrl: 'http://www.example.com/hearts.png',
         })
         .then((message) => process.stdout.write(message.sid));
-});
+}
 // Grab user input for text and time and send data to twilio
-$("***QQ SUBMIT***").on("click", function () {
+$("#qqSubmit").on("click", function () {
 
 });
 // Option to store in SQL (checkbox maybe)
@@ -144,8 +149,8 @@ function check() {
     // If not ingnore field
     // Grab quote out of checked box
     for (var i = 1; i < table.rows.length; i++) {
-        if ($('***CHECKBOX***')[i].is(':checked')) { // Maybe able to use THIS.CHECKED
-            value_check += i + ": " + $('***CHECKBOX***')[i].val();
+        if ($('#quoteCheck')[i].is(':checked')) { // Maybe able to use THIS.CHECKED
+            value_check += i + ": " + $('#quoteCheck')[i].val();
             // Alert(this.value) <-- maybe
         }
     }
