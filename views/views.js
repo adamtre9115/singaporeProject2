@@ -1,10 +1,10 @@
 console.log("HI");
 $(document).ready(function () {
-  // Getting a reference to the input field where user adds a new todo
+  // Getting a reference to the input field where user adds a new quote
   var $newItemInput = $("input.new-item");
-  // Our new todos will go inside the todoContainer
+  // Our new quotes will go inside the quoteContainer
   var $quoteContainer = $(".quotes-container");
-  // Adding event listeners for deleting, editing, and adding todos
+  // Adding event listeners for deleting, editing, and adding quotes
   $(document).on("click", "button.delete", deleteQuote);
   $(document).on("click", "button.complete", toggleComplete);
   $(document).on("click", ".quotes-item", editQuote);
@@ -12,23 +12,23 @@ $(document).ready(function () {
   $(document).on("blur", ".quotes-item", cancelEdit);
   $(document).on("submit", "#quotes-form", insertQuote);
 
-  // Our initial todos array
+  // Our initial quotes array
   var quotes = [];
 
-  // Getting todos from database when page loads
+  // Getting quotes from database when page loads
   getQuotes();
 
-  // This function resets the todos displayed with new todos from the database
+  // This function resets the quotes displayed with new quotes from the database
   function initializeRows() {
     $quoteContainer.empty();
     var rowsToAdd = [];
     for (var i = 0; i < quotes.length; i++) {
-      rowsQuotes.push(createNewRow(quotes[i]));
+      rowsToAdd.push(createNewRow(quotes[i]));
     }
     $quoteContainer.prepend(rowsToAdd);
   }
 
-  // This function grabs todos from the database and updates the view
+  // This function grabs quotes from the database and updates the view
   function getQuotes() {
     $.get("/api/quotes", function (data) {
       quotes = data;
@@ -36,7 +36,7 @@ $(document).ready(function () {
     });
   }
 
-  // This function deletes a todo when the user clicks the delete button
+  // This function deletes a quote when the user clicks the delete button
   function deleteQuote(event) {
     event.stopPropagation();
     var id = $(this).data("id");
@@ -46,7 +46,7 @@ $(document).ready(function () {
     }).done(getQuotes);
   }
 
-  // This function handles showing the input box for a user to edit a todo
+  // This function handles showing the input box for a user to edit a quote
   function editQuote() {
     var currentQuote = $(this).data("quote");
     $(this).children().hide();
@@ -60,21 +60,21 @@ $(document).ready(function () {
     event.stopPropagation();
     var quotes = $(this).parent().data("quotes");
     quotes.complete = !quotes.complete;
-    updateTodo(todo);
+    updateQuote(quote);
   }
 
-  // This function starts updating a todo in the database if a user hits the "Enter Key"
+  // This function starts updating a quote in the database if a user hits the "Enter Key"
   // While in edit mode
   function finishEdit() {
-    var updatedTodo = $(this).data("todo");
+    var updatedQuote = $(this).data("quote");
     if (event.keyCode === 13) {
       updatedQuote.text = $(this).children("input").val().trim();
       $(this).blur();
-      updateTodo(updatedQuote);
+      updateQuote(updatedQuote);
     }
   }
 
-  // This function updates a todo in our database
+  // This function updates a quote in our database
   function updateQuotes(quotes) {
     $.ajax({
       method: "PUT",
@@ -83,7 +83,7 @@ $(document).ready(function () {
     }).done(getQuotes);
   }
 
-  // This function is called whenever a todo item is in edit mode and loses focus
+  // This function is called whenever a quote item is in edit mode and loses focus
   // This cancels any edits being made
   function cancelEdit() {
     var currentQuote = $(this).data("quotes");
@@ -95,11 +95,11 @@ $(document).ready(function () {
     }
   }
 
-  // This function constructs a todo-item row
+  // This function constructs a quote-item row
   function createNewRow(quotes) {
     var $newInputRow = $(
       [
-        "<li class='list-group-item todo-item'>",
+        "<li class='list-group-item quote-item'>",
         "<span>",
         quotes.text,
         "</span>",
@@ -110,7 +110,7 @@ $(document).ready(function () {
       ].join("")
     );
 
-    $newInputRow.find("button.delete").data("id", todo.id);
+    $newInputRow.find("button.delete").data("id", quotes.id);
     $newInputRow.find("input.edit").css("display", "none");
     $newInputRow.data("quotes", quotes);
     if (quotes.complete) {
@@ -119,8 +119,8 @@ $(document).ready(function () {
     return $newInputRow;
   }
 
-  // This function inserts a new todo into our database and then updates the view
-  function insertQuotes(event) {
+  // This function inserts a new quote into our database and then updates the view
+  function insertQuote(event) {
     event.preventDefault();
     var quote = {
       text: $newItemInput.val().trim(),
