@@ -157,3 +157,46 @@
         }
     });
 </script>
+<div class=".col-sm-6">
+</div>
+<div class=".col-sm-6" id="image-div"></div>
+
+<div id="dynamic-container">
+
+    <div class="table-container">
+        <div class="panel panel-default">
+            <div class="panel-heading" id="header">My Personal Library</div>
+
+            <div class="table-responsive">
+                <table class="table table-condensed table-striped" id="personalLibraryTable">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Select</th>
+                            <th class="text-center">"Never Forgets"</th>
+                            <th class="text-center">Date Added</th>
+                            <th class="text-center">Edit</th>
+                            <th class="text-center">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="input-container">
+        <div class="panel panel-default">
+            <div class="panel-heading" id="header">Add Custom "Never Forget" to Library</div>
+
+            <form>
+                <div class="form-group">
+                    <label for="NewNeverForget">New "Never Forget"</label>
+                    <input type="text" class="form-control" id="newInput" placeholder="'Either write something worth reading or do something worth writing' -Benjamin Franklin"
+                        required>
+                </div>
+                <button type="submit" class="btn btn-primary" id="addNeverForget">Add</button>
+            </form>
+        </div>
+    </div>
+</div>
