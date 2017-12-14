@@ -1,0 +1,147 @@
+#image-div {
+    background: url("../images/orient_express.png") no-repeat center center;
+    background-size: cover;
+    height: 100%;
+    width: 660px;
+    right: 0;
+    position: fixed;
+    z-index: -1;
+}
+
+#dynamic-container {
+    height: 100%;
+    width: 660px;
+    right: 0;
+    position: fixed;
+}
+
+.table-container {
+    color: rgba(19, 17, 17, 0.767);
+    padding: 0;
+    margin-right: 30px;
+    margin-top: 40px;
+    width: 600px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    font-family: 'Cutive Mono', Georgia, monospace;
+    color: #f7e2d2;
+    border: 0;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th {
+    background: #c2bcbc;
+    color: rgb(39, 41, 56);
+    padding: 5px;
+    text-align: center;
+}
+
+.table-striped>tbody>tr:nth-child(even)>td,
+.table-striped>tbody>tr:nth-child(even)>th {
+    background: rgb(255, 255, 255);
+    color: rgb(39, 41, 56);
+    padding: 5px;
+    text-align: center;
+}
+
+tbody {
+    overflow: auto;
+    border: 0;
+    max-height: 200px;
+}
+
+th {
+    font-size: 17px;
+}
+
+td {
+    /* word-break: break-all; */
+    white-space: normal;
+}
+
+.panel {
+    background-color: rgba(30, 36, 63, 0.644);
+    border: none;
+    font-weight: bold;
+    color: #f7e2d2;
+}
+
+.panel-heading {
+    text-align: center;
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.panel-default>.panel-heading {
+    background-color: rgba(15, 20, 49, 0.664);
+    border: 0;
+    color: #f7e2d2;
+}
+
+.input-container {
+    padding: 0;
+    width: 600px;
+    bottom: 0;
+    right: 0;
+    margin: 30px;
+    font-family: 'Cutive Mono', Georgia, monospace;
+    position: fixed;
+}
+
+table {
+    padding: 10px;
+}
+
+form {
+    padding: 10px;
+    z-index: 1;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+.form-control {
+    background-color: #f7e2d2;
+    border: 0;
+    font-family: 'Cutive Mono', Georgia, monospace;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    color: #f7e2d2;
+    background: #cb2d3e;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ef473a, #cb2d3e);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ef473a, #cb2d3e);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-color: #9c310a;
+    letter-spacing: 1.5px;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    outline: 0;
+    background: #a73737;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #7a2828, #a73737);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #7a2828, #a73737);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-color: #993c3c;
+    -webkit-transform: translateX(-4px);
+    transform: translateX(-4px);
+}
+
+.btn-primary:active,
+.btn-primary.active {
+    outline: 0;
+    background: #1D976C;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #93F9B9, #1D976C);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #93F9B9, #1D976C);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-color: rgb(22, 141, 97);
+}
