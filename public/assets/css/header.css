@@ -1,0 +1,22 @@
+svg {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+}
+
+svg text {
+    text-anchor: middle;
+    font-size: 15em;
+    font-family: 'Megrim', cursive;
+    font-weight: bold;
+}
+
+svg mask rect {
+    fill: rgb(247, 217, 210);
+}
+
+svg>rect {
+    fill: rgba(0, 0, 0, 0.685);
+    -webkit-mask: url(#mask);
+    mask: url(#mask);
+}
