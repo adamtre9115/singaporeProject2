@@ -1,0 +1,125 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    /* background-image: url("../images/clouds.png"); */
+    /* background-size: cover; */
+}
+
+body {
+    display: grid;
+    grid-template-rows: 100vh;
+    grid-template-columns: 20vw 20vw 20vw 20vw 20vw;
+    grid-template-areas: "column1 column2 column3 column4 column5";
+    /* grid-template-columns: 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw;
+    grid-template-areas: "column1 column2 column3 column4 column5 column6 column7 column8 column9 column10"; */
+    grid-gap: 0;
+}
+
+svg {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+}
+
+svg text {
+    text-anchor: middle;
+    font-size: 15em;
+    font-family: 'Megrim', cursive;
+    font-weight: bold;
+}
+
+svg mask rect {
+    fill: rgb(247, 217, 210);
+}
+
+svg>rect {
+    fill: rgba(0, 0, 0, 0.685);
+    -webkit-mask: url(#mask);
+    mask: url(#mask);
+}
+
+section {
+    position: relative;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    object-fit: cover;
+    z-index: -500;
+    /* background: url("../images/homepage_poster.png") no-repeat;
+    background-size: cover; */
+}
+
+section#column1 {
+    grid-area: column1;
+    grid-column: 1;
+}
+
+section#column2 {
+    grid-area: column2;
+    grid-column: 2;
+}
+
+section#column3 {
+    grid-area: column3;
+    grid-column: 3;
+}
+
+section#column4 {
+    grid-area: column4;
+    grid-column: 4;
+}
+
+section#column5 {
+    grid-area: column5;
+    grid-column: 5;
+}
+
+footer {
+    grid-area: footer;
+    grid-column: 1 / 6;
+}
+
+section#column6 {
+    grid-area: column6;
+    grid-column: 6;
+}
+
+section#column7 {
+    grid-area: column7;
+    grid-column: 7;
+}
+
+section#column8 {
+    grid-area: column8;
+    grid-column: 8;
+}
+
+section#column9 {
+    grid-area: column9;
+    grid-column: 9;
+}
+
+section#column10 {
+    grid-area: column10;
+    grid-column: 10;
+}
