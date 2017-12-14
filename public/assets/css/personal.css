@@ -1,5 +1,5 @@
 #image-div {
-    background: url("../images/orient_express.png") no-repeat center center;
+    background: url("../images/#") no-repeat center center;
     background-size: cover;
     height: 100%;
     width: 660px;
