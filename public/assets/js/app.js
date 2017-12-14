@@ -1,218 +1,218 @@
 // -------- Log In --------
 
-// Grab User Log In & Event to go to main page
-$("#regSubmit").on("click", function (e) {
-    e.preventDefault();
-    // Grab Username
-    var userID = $("#regID").val();
-    // Grab password
-    var password = $("#regPassword").val();
-    // Send to firebase
-});
+// // Grab User Log In & Event to go to main page
+// $("#regSubmit").on("click", function (e) {
+//     e.preventDefault();
+//     // Grab Username
+//     var userID = $("#regID").val();
+//     // Grab password
+//     var password = $("#regPassword").val();
+//     // Send to firebase
+// });
 
 
-// -------- Main ---------
+// // -------- Main ---------
 
-// Option Selection (Go to Table, Random Quote, Quick Quote)
-// Event to got to table page
-$("#quoteTable").on("click", function (e) {
-    e.preventDefault();
-    // Route to table
+// // Option Selection (Go to Table, Random Quote, Quick Quote)
+// // Event to got to table page
+// $("#quoteTable").on("click", function (e) {
+//     e.preventDefault();
+//     // Route to table
 
-});
-// Random & Quick Quote
-$("#randQuote").on("click", function (e) {
-    e.preventDefault();
-    // Grab API quote
-    var randQuote = "*** API CALL ***"; // Import this
-    // Get time
-    var sendTime = $("#randTime").val();
-    // Get phone number
-    var randPhone = $("#randPhone").val();
-    // Send info to twilio 
-});
-$("#quickQuote").on("click", function (e) {
-    e.preventDefault();
-    // Popup/form for quick quote
-    quickQuote();
-});
-
-
-// -------- Table --------
-
-// Grab Data from SQL and Display it in Table 
-connection.connect(function (err) {
-    if (err) throw err;
-    readData();
-});
-
-function readData() {
-    console.log("Reading...");
-    connection.query(
-        "SELECT quote_id, quote, time FROM quotes",
-        function (err, result) {
-            if (err) throw err;
-            for (var i in result) {
-                console.log("Quote ID: " + result[i].quote_id + "   Quote: " + result[i].quote +
-                    "   Time: " + result[i].time);
-            }
-        }
-    )
-}
-// Grab User Input and Add to SQL (Click event to submit)
-$("#addQuote").on("click", function newQuote() {
+// });
+// // Random & Quick Quote
+// $("#randQuote").on("click", function (e) {
+//     e.preventDefault();
+//     // Grab API quote
+//     var randQuote = "*** API CALL ***"; // Import this
+//     // Get time
+//     var sendTime = $("#randTime").val();
+//     // Get phone number
+//     var randPhone = $("#randPhone").val();
+//     // Send info to twilio 
+// });
+// $("#quickQuote").on("click", function (e) {
+//     e.preventDefault();
+//     // Popup/form for quick quote
+//     quickQuote();
+// });
 
 
-    console.log("Inserting new quote...\n");
-    var query = connection.query(
-        "INSERT INTO quotes SET ?", {
-            quote: $("***USER QUOTE INPUT***").val(),
-            time: CURRENT_TIME
-        },
-        function (err, res) {
-            if (err) throw err;
-            console.log(res.affectedRows + " new quote inserted!\n");
-        }
-    );
-});
+// // -------- Table --------
 
-// Delete from SQL when User clicks delete button
-$("#deleteQuote").on("click", function deleteQuote() {
-    console.log("Deleting quote...\n");
-    connection.query(
-        "DELETE FROM quotes WHERE ?", {
-            id: this.id // ******** Need to test & prob change this ********
-        },
-        function (err, res) {
-            console.log(res.affectedRows + " Quotes deleted!\n");
-        }
-    );
-});
+// // Grab Data from SQL and Display it in Table 
+// connection.connect(function (err) {
+//     if (err) throw err;
+//     readData();
+// });
 
-// Checkbox on side to select quotes
-var checkedQuote = $("***Checkbox.Quote***").val() // ***** Not sure exactly how to work this *****
-// Click event for button below table to select the checked quotes
-$("#quoteCheck").on("click", function notifTime() {
-    // When quotes selected Pop up box
-
-});
+// function readData() {
+//     console.log("Reading...");
+//     connection.query(
+//         "SELECT quote_id, quote, time FROM quotes",
+//         function (err, result) {
+//             if (err) throw err;
+//             for (var i in result) {
+//                 console.log("Quote ID: " + result[i].quote_id + "   Quote: " + result[i].quote +
+//                     "   Time: " + result[i].time);
+//             }
+//         }
+//     )
+// }
+// // Grab User Input and Add to SQL (Click event to submit)
+// $("#addQuote").on("click", function newQuote() {
 
 
-// Click event for submit and send info to twilio api 
-$("#submitTimes").on("click", function submitTimes() {
-    // Grab input for time (make it required before submitting)
-    var time = $("#selectTime").val();
-    var userPhone = $("#userPhone").val();
-});
+//     console.log("Inserting new quote...\n");
+//     var query = connection.query(
+//         "INSERT INTO quotes SET ?", {
+//             quote: $("***USER QUOTE INPUT***").val(),
+//             time: CURRENT_TIME
+//         },
+//         function (err, res) {
+//             if (err) throw err;
+//             console.log(res.affectedRows + " new quote inserted!\n");
+//         }
+//     );
+// });
+
+// // Delete from SQL when User clicks delete button
+// $("#deleteQuote").on("click", function deleteQuote() {
+//     console.log("Deleting quote...\n");
+//     connection.query(
+//         "DELETE FROM quotes WHERE ?", {
+//             id: this.id // ******** Need to test & prob change this ********
+//         },
+//         function (err, res) {
+//             console.log(res.affectedRows + " Quotes deleted!\n");
+//         }
+//     );
+// });
+
+// // Checkbox on side to select quotes
+// var checkedQuote = $("***Checkbox.Quote***").val() // ***** Not sure exactly how to work this *****
+// // Click event for button below table to select the checked quotes
+// $("#quoteCheck").on("click", function notifTime() {
+//     // When quotes selected Pop up box
+
+// });
 
 
-// -------- Random --------
-// Click event to call api when clicked 
-// **** Maybe popup to ask for time ****
-// ^^^^ If so grab user input and send to twilio api ^^^^
-// **** otherwise send at random time during day and pass info to twilio****
+// // Click event for submit and send info to twilio api 
+// $("#submitTimes").on("click", function submitTimes() {
+//     // Grab input for time (make it required before submitting)
+//     var time = $("#selectTime").val();
+//     var userPhone = $("#userPhone").val();
+// });
 
 
-// -------- Twilio Account Info --------
+// // -------- Random --------
+// // Click event to call api when clicked 
+// // **** Maybe popup to ask for time ****
+// // ^^^^ If so grab user input and send to twilio api ^^^^
+// // **** otherwise send at random time during day and pass info to twilio****
 
-const accountSid = 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
-const authToken = 'your_auth_token';
-const client = require('twilio')(accountSid, authToken);
+
+// // -------- Twilio Account Info --------
+
+// const accountSid = 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
+// const authToken = 'your_auth_token';
+// const client = require('twilio')(accountSid, authToken);
 
 
-// -------- Quick Quote --------
+// // -------- Quick Quote --------
 
-// Click event to open form 
-function quickQuote() {
-    // Open form
-    var quote = $("#qqInput").val();
-    var time = $("#qqTime").val();
-    var phoneNum = $("#qqPhone").val();
-    client.messages.create({
-            body: quote,
-            to: '+' + phoneNum,
-            from: '+' + phoneNum,
-            // mediaUrl: 'http://www.example.com/hearts.png',
-        })
-        .then((message) => process.stdout.write(message.sid));
-}
-// Grab user input for text and time and send data to twilio
-$("#qqSubmit").on("click", function () {
+// // Click event to open form 
+// function quickQuote() {
+//     // Open form
+//     var quote = $("#qqInput").val();
+//     var time = $("#qqTime").val();
+//     var phoneNum = $("#qqPhone").val();
+//     client.messages.create({
+//             body: quote,
+//             to: '+' + phoneNum,
+//             from: '+' + phoneNum,
+//             // mediaUrl: 'http://www.example.com/hearts.png',
+//         })
+//         .then((message) => process.stdout.write(message.sid));
+// }
+// // Grab user input for text and time and send data to twilio
+// $("#qqSubmit").on("click", function () {
 
-});
-// Option to store in SQL (checkbox maybe)
+// });
+// // Option to store in SQL (checkbox maybe)
 
-// -------- Checkbox --------
+// // -------- Checkbox --------
 
-// Make sure checkbox is checked
-function check() {
-    // If not ingnore field
-    // Grab quote out of checked box
-    for (var i = 1; i < table.rows.length; i++) {
-        if ($('#quoteCheck')[i].is(':checked')) { // Maybe able to use THIS.CHECKED
-            value_check += i + ": " + $('#quoteCheck')[i].val();
-            // Alert(this.value) <-- maybe
-        }
-    }
-}
+// // Make sure checkbox is checked
+// function check() {
+//     // If not ingnore field
+//     // Grab quote out of checked box
+//     for (var i = 1; i < table.rows.length; i++) {
+//         if ($('#quoteCheck')[i].is(':checked')) { // Maybe able to use THIS.CHECKED
+//             value_check += i + ": " + $('#quoteCheck')[i].val();
+//             // Alert(this.value) <-- maybe
+//         }
+//     }
+// }
 
 // ######## Probably don't need this ########
 // function check() {
 //     $("#myCheck").checked = true;
 // }
-
+console.log("HI");
 $(document).ready(function () {
     // Getting a reference to the input field where user adds a new todo
     var $newItemInput = $("input.new-item");
     // Our new todos will go inside the todoContainer
-    var $todoContainer = $(".todo-container");
+    var $quoteContainer = $(".quotes-container");
     // Adding event listeners for deleting, editing, and adding todos
-    $(document).on("click", "button.delete", deleteTodo);
+    $(document).on("click", "button.delete", deleteQuote);
     $(document).on("click", "button.complete", toggleComplete);
-    $(document).on("click", ".todo-item", editTodo);
-    $(document).on("keyup", ".todo-item", finishEdit);
-    $(document).on("blur", ".todo-item", cancelEdit);
-    $(document).on("submit", "#todo-form", insertTodo);
+    $(document).on("click", ".quotes-item", editQuote);
+    $(document).on("keyup", ".quotes-item", finishEdit);
+    $(document).on("blur", ".quotes-item", cancelEdit);
+    $(document).on("submit", "#quotes-form", insertQuote);
 
     // Our initial todos array
-    var todos = [];
+    var quotes = [];
 
     // Getting todos from database when page loads
-    getTodos();
+    getQuotes();
 
     // This function resets the todos displayed with new todos from the database
     function initializeRows() {
-        $todoContainer.empty();
+        $quoteContainer.empty();
         var rowsToAdd = [];
-        for (var i = 0; i < todos.length; i++) {
-            rowsToAdd.push(createNewRow(todos[i]));
+        for (var i = 0; i < quotes.length; i++) {
+            rowsQuotes.push(createNewRow(quotes[i]));
         }
-        $todoContainer.prepend(rowsToAdd);
+        $quoteContainer.prepend(rowsToAdd);
     }
 
     // This function grabs todos from the database and updates the view
-    function getTodos() {
-        $.get("/api/todos", function (data) {
-            todos = data;
+    function getQuotes() {
+        $.get("/api/quotes", function (data) {
+            quotes = data;
             initializeRows();
         });
     }
 
     // This function deletes a todo when the user clicks the delete button
-    function deleteTodo(event) {
+    function deleteQuote(event) {
         event.stopPropagation();
         var id = $(this).data("id");
         $.ajax({
             method: "DELETE",
-            url: "/api/todos/" + id
-        }).done(getTodos);
+            url: "/api/quotes/" + id
+        }).done(getQuotes);
     }
 
     // This function handles showing the input box for a user to edit a todo
-    function editTodo() {
-        var currentTodo = $(this).data("todo");
+    function editQuote() {
+        var currentQuote = $(this).data("quote");
         $(this).children().hide();
-        $(this).children("input.edit").val(currentTodo.text);
+        $(this).children("input.edit").val(currentQuote.text);
         $(this).children("input.edit").show();
         $(this).children("input.edit").focus();
     }
@@ -220,8 +220,8 @@ $(document).ready(function () {
     // Toggles complete status
     function toggleComplete(event) {
         event.stopPropagation();
-        var todo = $(this).parent().data("todo");
-        todo.complete = !todo.complete;
+        var quotes = $(this).parent().data("quotes");
+        quotes.complete = !quotes.complete;
         updateTodo(todo);
     }
 
@@ -230,40 +230,40 @@ $(document).ready(function () {
     function finishEdit() {
         var updatedTodo = $(this).data("todo");
         if (event.keyCode === 13) {
-            updatedTodo.text = $(this).children("input").val().trim();
+            updatedQuote.text = $(this).children("input").val().trim();
             $(this).blur();
-            updateTodo(updatedTodo);
+            updateTodo(updatedQuote);
         }
     }
 
     // This function updates a todo in our database
-    function updateTodo(todo) {
+    function updateQuotes(quotes) {
         $.ajax({
             method: "PUT",
-            url: "/api/todos",
-            data: todo
-        }).done(getTodos);
+            url: "/api/quotes",
+            data: quotes
+        }).done(getQuotes);
     }
 
     // This function is called whenever a todo item is in edit mode and loses focus
     // This cancels any edits being made
     function cancelEdit() {
-        var currentTodo = $(this).data("todo");
-        if (currentTodo) {
+        var currentQuote = $(this).data("quotes");
+        if (currentQuote) {
             $(this).children().hide();
-            $(this).children("input.edit").val(currentTodo.text);
+            $(this).children("input.edit").val(currentQuote.text);
             $(this).children("span").show();
             $(this).children("button").show();
         }
     }
 
     // This function constructs a todo-item row
-    function createNewRow(todo) {
+    function createNewRow(quotes) {
         var $newInputRow = $(
             [
                 "<li class='list-group-item todo-item'>",
                 "<span>",
-                todo.text,
+                quotes.text,
                 "</span>",
                 "<input type='text' class='edit' style='display: none;'>",
                 "<button class='delete btn btn-default'>x</button>",
@@ -274,22 +274,22 @@ $(document).ready(function () {
 
         $newInputRow.find("button.delete").data("id", todo.id);
         $newInputRow.find("input.edit").css("display", "none");
-        $newInputRow.data("todo", todo);
-        if (todo.complete) {
+        $newInputRow.data("quotes", quotes);
+        if (quotes.complete) {
             $newInputRow.find("span").css("text-decoration", "line-through");
         }
         return $newInputRow;
     }
 
     // This function inserts a new todo into our database and then updates the view
-    function insertTodo(event) {
+    function insertQuotes(event) {
         event.preventDefault();
-        var todo = {
+        var quote = {
             text: $newItemInput.val().trim(),
             complete: false
         };
 
-        $.post("/api/todos", todo, getTodos);
+        $.post("/api/quotes", quotes, getQuotes);
         $newItemInput.val("");
     }
 });

@@ -15,11 +15,11 @@ router.get('/register', function (req, res, next) {
 
 // This = Page #1 in design - Three choice boxes only
 router.get('/main', function (req, res, next) {
-  res.render('main');
+  res.render('pages/main');
 });
 // Route to blank page for Personal page to Dynamically loaded by the Dale
 router.get('/personal', function (req, res, next) {
-  res.render('personal');
+  res.render('pages/personal');
 });
 
 //not sure if this is important
