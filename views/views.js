@@ -60,7 +60,7 @@ $(document).ready(function () {
     event.stopPropagation();
     var quotes = $(this).parent().data("quote");
     quotes.complete = !quotes.complete;
-    updateQuote(quote);
+    updateQuote(quotes);
   }
 
   // This function starts updating a quote in the database if a user hits the "Enter Key"
