@@ -7,9 +7,9 @@ $(document).ready(function () {
   // Adding event listeners for deleting, editing, and adding quotes
   $(document).on("click", "button.delete", deleteQuote);
   $(document).on("click", "button.complete", toggleComplete);
-  $(document).on("click", ".quotes-item", editQuote);
-  $(document).on("keyup", ".quotes-item", finishEdit);
-  $(document).on("blur", ".quotes-item", cancelEdit);
+  $(document).on("click", ".quote-item", editQuote);
+  $(document).on("keyup", ".quote-item", finishEdit);
+  $(document).on("blur", ".quote-item", cancelEdit);
   $(document).on("click", "#addNeverForget", insertQuote);
 
   // Our initial quotes array
@@ -58,7 +58,7 @@ $(document).ready(function () {
   // Toggles complete status
   function toggleComplete(event) {
     event.stopPropagation();
-    var quotes = $(this).parent().data("quotes");
+    var quotes = $(this).parent().data("quote");
     quotes.complete = !quotes.complete;
     updateQuote(quote);
   }
@@ -75,7 +75,7 @@ $(document).ready(function () {
   }
 
   // This function updates a quote in our database
-  function updateQuotes(quotes) {
+  function updateQuote(quotes) {
     $.ajax({
       method: "PUT",
       url: "/api/quotes",
@@ -112,7 +112,7 @@ $(document).ready(function () {
 
     $newInputRow.find("button.delete").data("id", quotes.id);
     $newInputRow.find("input.edit").css("display", "none");
-    $newInputRow.data("quotes", quotes);
+    $newInputRow.data("quote", quotes);
     if (quotes.complete) {
       $newInputRow.find("span").css("text-decoration", "line-through");
     }
