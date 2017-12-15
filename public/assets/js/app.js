@@ -14,13 +14,6 @@ $("#regSubmit").on("click", function (e) {
     }
 
     $.post("/createUser", userInfo, function () {});
-    // $.ajax({
-    //     method: "POST",
-    //     url: "/api/users",
-    //     data: userInfo
-    // }).done(function () {
-    //     window.location.href = "/main";
-    // });
 });
 
 
@@ -68,20 +61,15 @@ $("#submitQuickQuilly").on("click", function (e) {
 //     )
 // }
 // // Grab User Input and Add to SQL (Click event to submit)
-// $("#addQuote").on("click", function newQuote() {
+// $("#addNeverForget").on("click", function newQuote() {
+//     var input = $("#newInput").val();
+//     var newInput = {
+//         text: input,
+//         complete: 0
+//     }
 
+//     $.post("/api/quotes", newInput, function () {});
 
-//     console.log("Inserting new quote...\n");
-//     var query = connection.query(
-//         "INSERT INTO quotes SET ?", {
-//             quote: $("***USER QUOTE INPUT***").val(),
-//             time: CURRENT_TIME
-//         },
-//         function (err, res) {
-//             if (err) throw err;
-//             console.log(res.affectedRows + " new quote inserted!\n");
-//         }
-//     );
 // });
 
 // // Delete from SQL when User clicks delete button

@@ -22,20 +22,13 @@ module.exports = function (app) {
 
   // POST route for saving a new Quotes
   app.post("/api/quotes", function (req, res) {
-    // create takes an argument of an object describing the item we want to
-    // insert into our table. In this case we just we pass in an object with a text
-    // and complete property (req.body)
+    console.log(req.body);
     db.quotes.create({
         text: req.body.text,
-        //complete: req.body.complete
-      }).then(function (quotes_db) {
-        // We have access to the new quotes as an argument inside of the callback function
-        res.json(quotes_db);
+        complete: req.body.complete
       })
-      .catch(function (err) {
-        // Whenever a validation or flag fails, an error is thrown
-        // We can "catch" the error to prevent it from being "thrown", which could crash our node app
-        res.json(err);
+      .then(function (quotes_db) {
+        res.json(quotes_db);
       });
   });
 
@@ -60,7 +53,7 @@ module.exports = function (app) {
     // we use where to describe which objects we want to update
     db.quotes.update({
         text: req.body.text,
-        //complete: req.body.complete
+        complete: req.body.complete
       }, {
         where: {
           id: req.body.id

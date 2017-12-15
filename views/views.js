@@ -1,16 +1,16 @@
 console.log("HI");
 $(document).ready(function () {
   // Getting a reference to the input field where user adds a new quote
-  var $newItemInput = $("input.new-item");
+  var $newItemInput = $("#newInput");
   // Our new quotes will go inside the quoteContainer
-  var $quoteContainer = $(".quotes-container");
+  var $quoteContainer = $(".tableTest");
   // Adding event listeners for deleting, editing, and adding quotes
   $(document).on("click", "button.delete", deleteQuote);
   $(document).on("click", "button.complete", toggleComplete);
   $(document).on("click", ".quotes-item", editQuote);
   $(document).on("keyup", ".quotes-item", finishEdit);
   $(document).on("blur", ".quotes-item", cancelEdit);
-  $(document).on("submit", "#quotes-form", insertQuote);
+  $(document).on("click", "#addNeverForget", insertQuote);
 
   // Our initial quotes array
   var quotes = [];
@@ -122,8 +122,8 @@ $(document).ready(function () {
   // This function inserts a new quote into our database and then updates the view
   function insertQuote(event) {
     event.preventDefault();
-    var quote = {
-      text: $newItemInput.val().trim(),
+    var quotes = {
+      text: $newItemInput.val(),
       complete: false
     };
 

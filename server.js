@@ -31,7 +31,6 @@ app.use('/', index);
 
 // ############### MIGHT NEED ###############
 require("./routes/api-routes.js")(app);
-// require("./routes/api-sql-route.js")(app);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
