@@ -1,4 +1,4 @@
-svg {
+/* svg {
     height: 100vh;
     width: 100vw;
     position: absolute;
@@ -19,4 +19,4 @@ svg>rect {
     fill: rgba(0, 0, 0, 0.685);
     -webkit-mask: url(#mask);
     mask: url(#mask);
-}
+} */

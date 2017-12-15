@@ -1,79 +1,119 @@
-//Character countdown for textarea of Quick Quilly form
-var maxLength = 180;
-$("#quillyMessage").keyup(function () {
-    var currCharCount = $(this).val().length;
-    var charLeft = maxLength - currCharCount;
-    $("#charCount").text(charLeft);
-    if (charLeft <= 20) {
-        $("#charCount").css("color", "red");
-    }
-});
+var srcArr = [
+    "assets/images/boats.mp4",
+    "assets/images/city.mp4",
+    "assets/images/surfers.mp4",
+    "assets/images/snow.mp4",
+    "assets/images/boat_sunset.mp4",
+    "assets/images/blurred_lights.mp4",
+    "assets/images/beach_sunset.mp4",
+    "assets/images/snowfall.mp4",
+    "assets/images/sunset_clouds.mp4",
+    "assets/images/flowering_tree.mp4",
+    "assets/images/green_forest.mp4",
+    "assets/images/sunset_lake.mp4",
+    "assets/images/sunrise.mp4",
+    "assets/images/sea_cliff.mp4"
+];
+
+var randSrc;
+
+function getSrc() {
+    var duplicateArr = srcArr.slice(0);
+
+    var noRepeat = function () {
+        if (duplicateArr.length < 1) {
+            duplicateArr = srcArr.slice(0);
+        }
+        var randNum = Math.floor(Math.random() * duplicateArr.length);
+        randSrc = duplicateArr[randNum];
+        console.log("randSrc: " + randSrc);
+        duplicateArr.splice(randNum, 1);
+        return randSrc;
+    };
+}
 
 
+function rotateVid() {
+    getSrc();
+    // $("#col-1").src = randSrc;
+    // $("#col-2").src = getSrc();
+    // $("#col-3").src = getSrc();
+    // $("#col-4").src = getSrc();
+    // $("#col-5").src = getSrc();
+
+    // $("#col-1").load();
+    // $("#col-2").load();
+    // $("#col-3").load();
+    // $("#col-4").load();
+    // $("#col-5").load();
 
 
+    // var newPoster = 'images/video-cover.jpg'; would need to make it an object with src and poster
+    var currSrc = $("video");
+    var newSrc = randSrc;
+    var vidSection = $("section");
 
+    $(vidSection).click(function (event) {
+        currSrc.pause();
+        currSrc.setAttribute("src", newSrc);
+        currSrc.load();
+        // vidcontainer.setAttribute('poster', newPoster);
+        vidcontainer.play();
+    }, false);
 
-
-//User clicks "Report an Issue" button and is presented with disclaimer. Must confirm or cannot proceed to login.//
-function loadBtn() {
-
-    var btn = document.querySelector('.btn');
-
-    var btnFront = btn.querySelector('.btn-front'),
-        btnBack = btn.querySelector(' .btn-back'),
-        btnConfirm = btn.querySelector('.btn-back .confirm');
-
-    btnFront.addEventListener('click', function (event) {
-        btnBack.style.visibility = "visible";
-
-        var mx = event.clientX - btn.offsetLeft,
-            my = event.clientY - btn.offsetTop;
-
-        var w = btn.offsetWidth,
-            h = btn.offsetHeight;
-
-        var directions = [{
-                id: 'top',
-                x: w / 2,
-                y: 0
-            },
-            {
-                id: 'right',
-                x: w,
-                y: h / 2
-            },
-            {
-                id: 'bottom',
-                x: w / 2,
-                y: h
-            },
-            {
-                id: 'left',
-                x: 0,
-                y: h / 2
-            }
-        ];
-
-        directions.sort(function (a, b) {
-            return distance(mx, my, a.x, a.y) - distance(mx, my, b.x, b.y);
-        });
-
-        btn.setAttribute('data-direction', directions.shift().id);
-        btn.classList.add('is-open');
+    $(document).ready(function () setInterval(rotateVid, 10000);
     });
 
-    btnConfirm.addEventListener('click', function (event) {
-        btn.style.display = "none";
-        authContainer.style.display = "block";
-        var main = document.getElementById('main');
-        main.style.display = "flex";
-        main.style.justifyContent = "center";
-    });
 
-    function distance(x1, y1, x2, y2) {
-        var dx = x1 - x2;
-        var dy = y1 - y2;
-        return Math.sqrt(dx * dx + dy * dy);
-    }
-};
+
+
+
+
+// var vidColumn;
+// var currIndex;
+
+// let renderVids = () => {
+//     vidColumn = $("video")[i];
+//     currIndex = $(vidColumn).attr("data-index");
+//     vidColumn.src = loginVids[currIndex];
+//     vidColumn.load();
+// }
+
+// let cycleVids = () => {
+//     currIndex = $(vidColumn).attr("data-index") + 1;
+//     if (currIndex >= loginVids.length) {
+//         currIndex = 0;
+//     }
+//     $(vidColumn).attr("data-index", currIndex);
+//     vidColumn.src = loginVids[currIndex];
+//     renderVids();
+// }
+
+// for (var i = 0; i < 5; i++) {
+//     renderVids();
+// }
+
+
+// var vidColumn;
+// var currIndex;
+
+// let renderVids = () => {
+//     vidColumn = $("video")[i];
+//     currIndex = $(vidColumn).attr("data-index");
+//     vidColumn.src = loginVids[currIndex];
+//     vidColumn.load();
+// }
+
+// let rotateVid = () => {
+//     currIndex = $(vidColumn).attr("data-index") + 1;
+//     if (currIndex >= loginVids.length) {
+//         currIndex = 0;
+//     }
+//     $(vidColumn).attr("data-index", currIndex);
+//     vidColumn.src = loginVids[currIndex];
+//     renderVids();
+// }
+
+// for (var i = 0; i < 5; i++) {
+//     renderVids();
+// }
