@@ -1,0 +1,40 @@
+<section id="personalLibrary">
+    <button id="personalLibraryBtn">Visit My Personal Library</button>
+</section>
+<section id="quickQuilly">
+    <div id="quickQuillyBtn" class="btn">
+        <div class="btn-front">Cue a Quick Quilly</div>
+        <div class="btn-back">
+            <form id="quickQuillyForm" method="post">
+                <h3>Quick Quilly</h3>
+                <h4>In a hurry? Create a Quick Quilly with your custom message!</h4>
+                <label>
+                    Send Time:
+                    <input type="text" tabindex="1" placeholder="11:15AM" required autofocus>
+                </label>
+                <br />
+                <label>
+                    Send To:
+                    <span id="countryCode">+1
+                        <input type="tel" tabindex="2" placeholder="555-555-5555" required>
+                    </span>
+                </label>
+                <p>
+                    <label>
+                        Message:
+                        <textarea id="quillyMessage" tabindex="3" maxlength="180" placeholder="You aced that presentation! You've earned yourself a cold one ;)"
+                            required></textarea>
+                        <h5>
+                            <span id="charCount">180 </span>Characters Remaining</h5>
+                    </label>
+                </p>
+                <label>
+                    <button type="submit" id="submitQuickQuilly" data-submit="Quilly Scheduled">Submit Quilly</button>
+                </label>
+            </form>
+        </div>
+    </div>
+</section>
+<section id="searchQuotes">
+    <button id="searchQuotesBtn">Search for fresh inspiration in our popular quotes database!</button>
+</section>
