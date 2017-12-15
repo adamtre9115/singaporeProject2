@@ -25,8 +25,12 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
-app.use('/users', users);
+// app.use('/users', users);
+
+// ############### MIGHT NEED ###############
 require("./routes/api-routes.js")(app);
+// require("./routes/api-sql-route.js")(app);
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     var err = new Error('Not Found');

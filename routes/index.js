@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var db = require('../models/index');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -25,8 +26,25 @@ router.get('/personal', function (req, res, next) {
 //not sure if this is important
 router.post('/createUser', function (req, res, next) {
   console.log(req.body);
-
+  db.users.create({
+      userName: req.body.email,
+      password: req.body.password
+    }).then(function (quote_db) {
+      // We have access to the new quote as an argument inside of the callback function
+      res.json(quote_db);
+    })
+    .catch(function (err) {
+      // Whenever a validation or flag fails, an error is thrown
+      // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+      res.json(err);
+    });
   // redirect to other page
-  res.redirect("index");
+  res.redirect("main");
 });
+
+router.post('/personal', function (req, res, next) {
+  // redirect to other page
+  res.redirect("personal");
+});
+
 module.exports = router;

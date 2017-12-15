@@ -33,4 +33,10 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+// relations
+db.quotes.belongsTo(db.users);
+db.users.hasMany(db.quotes, {
+    as: 'Quotes'
+});
+
 module.exports = db;

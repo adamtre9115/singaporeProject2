@@ -1,6 +1,6 @@
-<section id="personalLibrary">
+<form id="personalLibrary" action="/personal" method="POST">
     <button id="personalLibraryBtn">Visit My Personal Library</button>
-</section>
+</form>
 <section id="quickQuilly">
     <div id="quickQuillyBtn" class="btn">
         <div class="btn-front">Cue a Quick Quilly</div>
@@ -10,13 +10,13 @@
                 <h4>In a hurry? Create a Quick Quilly with your custom message!</h4>
                 <label>
                     Send Time:
-                    <input type="text" tabindex="1" placeholder="11:15AM" required autofocus>
+                    <input id="qqTime" type="text" tabindex="1" placeholder="11:15AM" required autofocus>
                 </label>
                 <br />
                 <label>
                     Send To:
                     <span id="countryCode">+1
-                        <input type="tel" tabindex="2" placeholder="555-555-5555" required>
+                        <input id="qqPhone" type="tel" tabindex="2" placeholder="555-555-5555" required>
                     </span>
                 </label>
                 <p>
