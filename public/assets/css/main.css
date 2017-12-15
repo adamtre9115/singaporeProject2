@@ -1,123 +1,252 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html,
+    body {
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+    }
+
+    body {
+        display: grid;
+        grid-template-rows: 30vh 30vh 30vh;
+        grid-template-columns: 100vw;
+        grid-template-areas: "personalLibrary quickQuilly searchQuotes";
+        grid-gap: 5vw;
+    }
+
+    section#personalLibrary {
+        grid-area: column1;
+        grid-row: 1;
+    }
+
+    button#personalLibraryBtn {
+        height: 20vh;
+        width: 50vw;
+        border: 1vw dotted white;
+        background: rgb(73, 202, 241) url("libraryBtn.jpeg") no-repeat fixed center;
+    }
+
+    section#quickQuilly {
+        grid-area: column1;
+        grid-row: 2;
+    }
+
+    button#quickQuillyBtn {
+        height: 20vh;
+        width: 50vw;
+        border: 1vw dotted white;
+    }
+
+    section#searchQuotes {
+        grid-area: column1;
+        grid-row: 3;
+    }
+
+    button#searchQuotesBtn {
+        height: 20vh;
+        width: 50vw;
+        border: 1vw dotted white;
+        background: lightblue url("inspiration.jpg") no-repeat fixed center;
+    }
+    /* .btn {
+    text-align: center;
+    cursor: pointer;
     padding: 0;
-}
-
-html,
-body {
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-}
-
-body {
-    display: grid;
-    grid-template-rows: 100vh;
-    grid-template-columns: 20vw 20vw 20vw 20vw 20vw;
-    grid-template-areas: "column1 column2 column3 column4 column5";
-    /* grid-template-columns: 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw;
-    grid-template-areas: "column1 column2 column3 column4 column5 column6 column7 column8 column9 column10"; */
-    grid-gap: 0;
-}
-
-svg {
-    height: 100vh;
-    width: 100vw;
-    position: absolute;
-}
-
-svg text {
-    text-anchor: middle;
-    font-size: 15em;
-    font-family: 'Megrim', cursive;
-    font-weight: bold;
-}
-
-svg mask rect {
-    fill: rgb(247, 217, 210);
-}
-
-svg>rect {
-    fill: rgba(0, 0, 0, 0.685);
-    -webkit-mask: url(#mask);
-    mask: url(#mask);
-}
-
-section {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-top: 6%;
     position: relative;
-    overflow: hidden;
+    z-index: 4;
+    display: inline-block;
+    -webkit-transition: width 0.8s cubic-bezier(0.23, 1, 0.32, 1), height 0.8s cubic-bezier(0.23, 1, 0.32, 1), -webkit-transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: width 0.8s cubic-bezier(0.23, 1, 0.32, 1), height 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+}
+
+.btn-front {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    width: 32%;
+    height: 24%;
+    text-align: center;
+    letter-spacing: 0.2em;
+    font-family: "Josefin Sans", Helvetica, sans-serif;
+    font-size: 1.6em;
+    line-height: 3em;
+    padding: 0.5em 1.5em;
+    text-decoration: none;
+    text-shadow: 0.1em 0.1em 0 rgba(0, 0, 0, 0.3);
+    color: rgba(241, 230, 185, 0.767);
+    border: 0.1em solid rgb(206, 100, 62);
+    background-color: rgb(235, 124, 99);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(235, 124, 99)), to(rgb(175, 73, 50)));
+    background-image: -webkit-linear-gradient(top, rgb(235, 124, 99), rgb(175, 73, 50));
+    background-image: -moz-linear-gradient(top, rgb(235, 124, 99), rgb(175, 73, 50));
+    background-image: -ms-linear-gradient(top, rgb(235, 124, 99), rgb(175, 73, 50));
+    background-image: -o-linear-gradient(top, rgb(235, 124, 99), rgb(175, 73, 50));
+    background-image: linear-gradient(to bottom, rgb(235, 124, 99), rgb(175, 73, 50));
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=rgb(235, 124, 99), endColorstr=rgb(175, 73, 50));
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-transition: background 0.15s ease, line-height 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: background 0.15s ease, line-height 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.btn-front:hover {
+    border: 0.1em solid rgb(241, 166, 138);
+    color: rgba(250, 247, 225, 0.849);
+    text-decoration: none;
+    text-shadow: 0.1em 0.1em 0 rgba(80, 38, 3, 0.562);
+    background-color: rgb(236, 158, 142);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(175, 91, 74)), to(rgb(228, 150, 114)));
+    background-image: -webkit-linear-gradient(top, rgb(175, 91, 74), rgb(228, 150, 114));
+    background-image: -moz-linear-gradient(top, rgb(175, 91, 74), rgb(228, 150, 114));
+    background-image: -ms-linear-gradient(top, rgb(175, 91, 74), rgb(228, 150, 114));
+    background-image: -o-linear-gradient(top, rgb(175, 91, 74), rgb(228, 150, 114));
+    background-image: linear-gradient(to bottom, rgb(175, 91, 74), rgb(228, 150, 114));
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=rgb(175, 91, 74), endColorstr=rgb(228, 150, 114));
+}
+
+.btn-front:active {
+    border: 0.1em solid rgb(247, 144, 104);
+    color: rgba(228, 108, 43, 0.849);
+    text-decoration: none;
+    text-shadow: 0.1em 0.1em 0 rgba(226, 143, 75, 0.562);
+    background-color: rgb(241, 222, 117);
+    background-image: -webkit-gradient(linear, left top, left bottom, from rgb(241, 222, 117), to(rgb(216, 165, 72)));
+    background-image: -webkit-linear-gradient(top, rgb(241, 222, 117), rgb(216, 165, 72));
+    background-image: -moz-linear-gradient(top, rgb(241, 222, 117), rgb(216, 165, 72));
+    background-image: -ms-linear-gradient(top, rgb(241, 222, 117), rgb(216, 165, 72));
+    background-image: -o-linear-gradient(top, rgb(241, 222, 117), rgb(216, 165, 72));
+    background-image: linear-gradient(to bottom, rgb(241, 222, 117), rgb(216, 165, 72));
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=rgb(241, 222, 117), endColorstr=rgb(216, 165, 72));
+}
+
+.btn-back {
     top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-}
-
-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: auto;
-    height: auto;
+    visibility: hidden;
+    cursor: pointer;
+    font-family: "Josefin Sans", Helvetica, sans-serif;
+    font-size: 1.1em;
+    padding: 2em 1.7em;
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    letter-spacing: 0.2em;
+    background-color: rgba(51, 49, 49, 0.74);
+    color: rgb(252, 247, 247);
+    -webkit-transform: translateZ(-2px) rotateX(180deg);
+    transform: translateZ(-2px) rotateX(180deg);
     overflow: hidden;
-    object-fit: cover;
-    z-index: -500;
-    /* background: url("../images/homepage_poster.png") no-repeat;
-    background-size: cover; */
+    -webkit-transition: box-shadow 0.8s ease;
+    transition: box-shadow 0.8s ease;
 }
 
-section#column1 {
-    grid-area: column1;
-    grid-column: 1;
+.btn-back p {
+    font-size: 1.7em;
+    line-height: 2em;
+    text-shadow: 0.1em 0.1em 0 rgba(37, 35, 35, 0.74);
 }
 
-section#column2 {
-    grid-area: column2;
-    grid-column: 2;
+p>span {
+    color: rgb(248, 86, 61);
 }
 
-section#column3 {
-    grid-area: column3;
-    grid-column: 3;
+button>span {
+    color: rgb(12, 119, 119);
+    text-shadow: 0.05em 0.05em 0 rgba(29, 214, 218, 0.74);
 }
 
-section#column4 {
-    grid-area: column4;
-    grid-column: 4;
+.btn-back button {
+    border: 0.2em dashed rgb(63, 235, 209);
+    color: rgb(63, 235, 209);
+    padding: 0.35em 1.2em;
+    margin-top: 1.5em;
+    margin-bottom: 0.2em;
+    letter-spacing: 0.2em;
+    background-color: transparent;
+    border-radius: 1em;
+    font-size: 1.5em;
+    line-height: 30px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-transition: background 0.15s ease;
+    transition: background 0.15s ease;
 }
 
-section#column5 {
-    grid-area: column5;
-    grid-column: 5;
+.btn-back button:focus {
+    outline: 0;
 }
 
-footer {
-    grid-area: footer;
-    grid-column: 1 / 6;
+.btn-back button.confirm:hover {
+    background-color: rgb(2, 89, 92);
+    border: 0.2em solid rgb(9, 101, 104);
+    color: rgb(255, 255, 255);
+    text-shadow: 0.05em 0.05em 0 rgba(3, 56, 56, 0.651);
 }
 
-section#column6 {
-    grid-area: column6;
-    grid-column: 6;
+button.confirm:hover>span {
+    color: rgb(29, 214, 218);
+    text-shadow: 0.05em 0.05em 0 rgba(11, 129, 129, 0.74);
 }
 
-section#column7 {
-    grid-area: column7;
-    grid-column: 7;
+.btn-back button.confirm:active {
+    color: rgb(11, 129, 129);
+    text-shadow: 0.05em 0.05em 0 rgba(29, 214, 218, 0.753);
+    background-color: rgb(255, 255, 255);
+    border: 0.2em solid rgb(9, 101, 104);
 }
 
-section#column8 {
-    grid-area: column8;
-    grid-column: 8;
+button.confirm:active>span {
+    color: rgb(29, 214, 218);
+    text-shadow: 0.05em 0.05em 0 rgba(11, 129, 129, 0.74);
 }
 
-section#column9 {
-    grid-area: column9;
-    grid-column: 9;
+.btn[data-direction="left"] .btn-back,
+.btn[data-direction="right"] .btn-back {
+    -webkit-transform: translateZ(-2px) rotateY(180deg);
+    transform: translateZ(-2px) rotateY(180deg);
 }
 
-section#column10 {
-    grid-area: column10;
-    grid-column: 10;
+.btn.is-open .btn-front {
+    pointer-events: none;
+    line-height: 160px;
 }
+
+.btn.is-open .btn-back {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.btn[data-direction="top"].is-open {
+    -webkit-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+}
+
+.btn[data-direction="right"].is-open {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.btn[data-direction="bottom"].is-open {
+    -webkit-transform: rotateX(-180deg);
+    transform: rotateX(-180deg);
+}
+
+.btn[data-direction="left"].is-open {
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+} */
