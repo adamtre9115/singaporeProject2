@@ -1,10 +1,6 @@
 //Character countdown for textarea of Quick Quilly form
 var maxLength = 180;
-<<<<<<< HEAD
-$("#quillyMsg").keyup(function () {
-=======
 $("#quillyMessage").keyup(function () {
->>>>>>> bae2625abe85c206aef14d71a59790b2d7b0c555
     var currCharCount = $(this).val().length;
     var charLeft = maxLength - currCharCount;
     $("#charCount").text(charLeft);
