@@ -1,17 +1,4 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html,
-body {
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-}
-
-body {
+main {
     display: grid;
     grid-template-rows: 100vh;
     grid-template-columns: 20vw 20vw 20vw 20vw 20vw;
@@ -29,17 +16,17 @@ svg {
 
 svg text {
     text-anchor: middle;
-    font-size: 15em;
+    font-size: 18em;
     font-family: 'Megrim', cursive;
     font-weight: bold;
 }
 
 svg mask rect {
-    fill: rgb(247, 217, 210);
+    fill: rgb(255, 255, 255);
 }
 
 svg>rect {
-    fill: rgba(0, 0, 0, 0.685);
+    fill: rgba(0, 0, 0, 0.719);
     -webkit-mask: url(#mask);
     mask: url(#mask);
 }
@@ -92,11 +79,14 @@ section#column5 {
     grid-column: 5;
 }
 
-footer {
+
+/* footer {
     grid-area: footer;
     grid-column: 1 / 6;
-}
+} */
 
+
+/* 
 section#column6 {
     grid-area: column6;
     grid-column: 6;
@@ -120,4 +110,4 @@ section#column9 {
 section#column10 {
     grid-area: column10;
     grid-column: 10;
-}
+} */
