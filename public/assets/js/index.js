@@ -20,8 +20,6 @@ let srcArrCopy = srcArr.map((val) => {
 });
 console.log(srcArrCopy);
 
-
-
 // // var newPoster = 'images/video-cover.jpg'; would need to make it an object with src and poster
 
 // //Get random src from array and ensure not repeated until all have been played
@@ -34,7 +32,6 @@ function getRandSrc() {
     var randNum = Math.floor(Math.random() * srcArrCopy.length);
     var randSrc = srcArrCopy[randNum];
     srcArrCopy.splice(randNum, 1);
-
 
     return randSrc;
 }
@@ -65,8 +62,7 @@ pauseVid = () => {
 for (var i = 0; i < 5; i++) {
     vidColumn = $("video")[i];
     vidColumn.src = getRandSrc();
-
-
+  
     // vidSection.setAttribute('poster', newPoster);
     vidColumn.load();
     vidColumn.play();
