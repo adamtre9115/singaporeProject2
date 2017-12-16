@@ -42,18 +42,4 @@ router.post('/createUser', function (req, res, next) {
   res.redirect("main");
 });
 
-// router.post('/api/quotes', function (req, res, next) {
-//   db.quotes.create({
-//       text: req.body.text
-//     }).then(function (quote_db) {
-//       // We have access to the new quote as an argument inside of the callback function
-//       res.json(quote_db);
-//     })
-//     .catch(function (err) {
-//       // Whenever a validation or flag fails, an error is thrown
-//       // We can "catch" the error to prevent it from being "thrown", which could crash our node app
-//       res.json(err);
-//     });
-// });
-
 module.exports = router;

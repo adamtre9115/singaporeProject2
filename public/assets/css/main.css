@@ -1,4 +1,4 @@
-    * {
+    /* * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
@@ -52,7 +52,7 @@
         width: 50vw;
         border: 1vw dotted white;
         background: lightblue url("inspiration.jpg") no-repeat fixed center;
-    }
+    } */
     /* .btn {
     text-align: center;
     cursor: pointer;

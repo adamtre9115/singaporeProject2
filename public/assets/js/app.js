@@ -12,7 +12,7 @@ $("#regSubmit").on("click", function (e) {
         userName: userName,
         password: password
     }
-
+    // Post To SQL
     $.post("/createUser", userInfo, function () {});
 });
 
@@ -21,126 +21,66 @@ $("#regSubmit").on("click", function (e) {
 
 // Option Selection (Go to Table, Random Quote, Quick Quote)
 
-// Random & Quick Quote
-$("#randQuote").on("click", function (e) {
-    e.preventDefault();
-    // Grab API quote
-    var randQuote = "*** API CALL ***"; // Import this
-    // Get time
-    var sendTime = $("#randTime").val();
-    // Get phone number
-    var randPhone = $("#randPhone").val();
-    // Send info to twilio 
-});
-$("#submitQuickQuilly").on("click", function (e) {
-    e.preventDefault();
-    // Popup/form for quick quote
-    quickQuote();
-});
 
+// ##### Quick Quote #####
 
-// // -------- Table --------
-
-// // Grab Data from SQL and Display it in Table 
-// connection.connect(function (err) {
-//     if (err) throw err;
-//     readData();
-// });
-
-// function readData() {
-//     console.log("Reading...");
-//     connection.query(
-//         "SELECT quote_id, quote, time FROM quotes",
-//         function (err, result) {
-//             if (err) throw err;
-//             for (var i in result) {
-//                 console.log("Quote ID: " + result[i].quote_id + "   Quote: " + result[i].quote +
-//                     "   Time: " + result[i].time);
-//             }
-//         }
-//     )
-// }
-// // Grab User Input and Add to SQL (Click event to submit)
-// $("#addNeverForget").on("click", function newQuote() {
-//     var input = $("#newInput").val();
-//     var newInput = {
-//         text: input,
-//         complete: 0
+// $("#submitQuickQuilly").on("click", function (e) {
+//     e.preventDefault();
+//     console.log("YYOOOO");
+//     // Grab user input for text and time and send data to twilio
+//     var twilioData = {
+//         message = $("#quillyMessage").val(),
+//         time = $("#qqTime").val(),
+//         phoneNum = $("#qqPhone").val()
 //     }
-
-//     $.post("/api/quotes", newInput, function () {});
-
+//     console.log(message, time, phoneNum);
+//   
 // });
 
-// // Delete from SQL when User clicks delete button
-// $("#deleteQuote").on("click", function deleteQuote() {
-//     console.log("Deleting quote...\n");
-//     connection.query(
-//         "DELETE FROM quotes WHERE ?", {
-//             id: this.id // ******** Need to test & prob change this ********
-//         },
-//         function (err, res) {
-//             console.log(res.affectedRows + " Quotes deleted!\n");
-//         }
-//     );
+// ##### Random #####
+
+// $("#randQuote").on("click", function (e) {
+//     e.preventDefault();
+//     // Grab API quote
+//     var randQuote = "*** API CALL ***"; // Import this
+//     // Get time
+//     var sendTime = $("#randTime").val();
+//     // Get phone number
+//     var randPhone = $("#randPhone").val();
+//     console.log(randQuote, sendTime, randPhone);
+//     // Send info to twilio 
+//     twilio(randQuote, sendTime, randPhone);
 // });
+
+// ### MAYBE ADD LATER ####
+// Option to store quote in SQL (checkbox maybe)
+
+
+// -------- Table --------
 
 // // Checkbox on side to select quotes
-// var checkedQuote = $("***Checkbox.Quote***").val() // ***** Not sure exactly how to work this *****
-// // Click event for button below table to select the checked quotes
+// Click event for button below table to select the checked quotes
 // $("#quoteCheck").on("click", function notifTime() {
-//     // When quotes selected Pop up box
+//     // When quotes selected Pop up box for time select
+//     var checkedQuote = $("***Checkbox.Quote***").val() // ***** Not sure exactly how to work this *****
 
 // });
 
 
-// // Click event for submit and send info to twilio api 
+// Click event for submit and send info to twilio api 
 // $("#submitTimes").on("click", function submitTimes() {
 //     // Grab input for time (make it required before submitting)
+//     var quote = ? ? ? ;
 //     var time = $("#selectTime").val();
 //     var userPhone = $("#userPhone").val();
+//     twilio(quote, time, userPhone);
 // });
 
 
-// // -------- Random --------
-// // Click event to call api when clicked 
-// // **** Maybe popup to ask for time ****
-// // ^^^^ If so grab user input and send to twilio api ^^^^
-// // **** otherwise send at random time during day and pass info to twilio****
 
+// -------- Checkbox --------
 
-// // -------- Twilio Account Info --------
-
-// const accountSid = 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
-// const authToken = 'your_auth_token';
-// const client = require('twilio')(accountSid, authToken);
-
-
-// -------- Quick Quote --------
-
-// Click event to open form 
-function quickQuote() {
-    // Open form
-    var quote = $("#quillyMessage").val();
-    var time = $("#qqTime").val();
-    var phoneNum = $("#qqPhone").val();
-    client.messages.create({
-            body: quote,
-            to: '+1' + phoneNum,
-            from: '+1' + phoneNum,
-            // mediaUrl: 'http://www.example.com/hearts.png',
-        })
-        .then((message) => process.stdout.write(message.sid));
-}
-// Grab user input for text and time and send data to twilio
-$("#qqSubmit").on("click", function () {
-
-});
-// Option to store in SQL (checkbox maybe)
-
-// // -------- Checkbox --------
-
-// // Make sure checkbox is checked
+// Make sure checkbox is checked
 // function check() {
 //     // If not ingnore field
 //     // Grab quote out of checked box
@@ -156,3 +96,38 @@ $("#qqSubmit").on("click", function () {
 // function check() {
 //     $("#myCheck").checked = true;
 // }
+
+// -------- TWILIO --------
+
+
+// -------- RANDOM QUOTE MAIN PAGE --------
+
+function getRandQuote() {
+    var quotes = [
+        "You look really nice today... Just kidding!",
+        "In order to succeed, we must first believe that we can. ~ Nikos Kazantzakis",
+        "Only I can change my life. No one can do it for me. ~ Carol Burnett",
+        "We should not give up and we should not allow the problem to defeat us. ~ A. P. J. Abdul Kalam",
+        "The past cannot be changed. The future is yet in your power.",
+        "Perfection is not attainable, but if we chase perfection we can catch excellence. ~ Vince Lombardi",
+        "No matter what people tell you, words and ideas can change the world. Robin Williams",
+        "When you have a dream, you've got to grab it and never let go.",
+        "Shoot for the moon and if you miss you will still be among the stars. ~ Les Brown",
+        "Out of difficulties grow miracles. ~ Jean de la Bruyere",
+        "When we seek to discover the best in others, we somehow bring out the best in ourselves. ~ William Arthur Ward",
+        "There is nothing impossible to him who will try. ~ Alexander the Great",
+        "Your big opportunity may be right where you are now. ~ Napoleon Hill",
+        "We can change our lives. We can do, have, and be exactly what we wish.  ~Tony Robbins"
+    ]
+
+    // generate random quote for jumbotron tag
+    function quote() {
+        setInterval(function () {
+            var num = Math.floor(Math.random() * quotes.length);
+            $("#quoteDisplay").text(quotes[num]);
+        }, 5000)
+
+    }
+    quote();
+}
+getRandQuote();
