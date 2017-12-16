@@ -132,28 +132,5 @@ $(document).ready(function () {
         }
         quote();
     }
-<<<<<<< HEAD
-    quote();
-}
-getRandQuote();
-
-// ********** Text **********
-$("#submitQuickQuilly").on("click", function () {
-
-    // capture values of all input fields
-    var sendTime = $("#qqTime").val().trim();
-    var sendPhone = $("#qqphone").val().trim();
-    var sendBody = $("#quillyMsg").val().trim();
-
-    var newQuil = {
-        body: sendBody,
-        to: sendPhone
-    }
-
-    console.log(newQuil);
-    $.post("/sms", newQuil, function () {});
-})
-=======
     getRandQuote();
 });
->>>>>>> afba72f2eff61ced9051d29fb1c10cc64345aacb
