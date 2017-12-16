@@ -22,7 +22,7 @@
                     <tbody class="tableTest">
                     </tbody>
                 </table>
-                <form id="persQuillyForm" method="post">
+                <form id="persQuillyForm" action="/twilio" method="POST">
                     <h3 id="persQuillyHeading">Quilly</h3>
                     <label>
                         Send Time:
@@ -177,7 +177,7 @@
             $newInputRow.find("input.edit").css("display", "none");
             $newInputRow.data("quote", quotes);
             if (quotes.complete) {
-                $newInputRow.find("span").css("text-decoration", "line-through");
+                $newInputRow.find("span").addClass("line-through");
             }
             return $newInputRow;
         }

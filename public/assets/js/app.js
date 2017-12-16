@@ -57,13 +57,26 @@ $(document).ready(function () {
 
     // -------- Table --------
 
-    // // Checkbox on side to select quotes
     // Click event for button below table to select the checked quotes
-    // $("#quoteCheck").on("click", function notifTime() {
-    //     // When quotes selected Pop up box for time select
-    //     var checkedQuote = $("***Checkbox.Quote***").val() // ***** Not sure exactly how to work this *****
+    $("#submitPersQuilly").on("click", function (e) {
+        e.preventDefault();
+        var message;
+        var phone = $("#qqPhone").val().trim();
+        var time = $("#qqTime").val().trim();
+        var items = $('.line-through');
 
-    // });
+        // When quotes selected Pop up box for time select
+        for (var i = 0; i < items.length; i++) {
+            console.log(items[i].innerText);
+            message += items[i].innerText;
+        }
+        var twilioData = {
+            message: message,
+            time: time,
+            phoneNum: phone
+        }
+        $.post("/twilio", twilioData, function () {});
+    });
 
 
     // Click event for submit and send info to twilio api 

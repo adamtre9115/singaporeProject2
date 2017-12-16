@@ -149,3 +149,7 @@ form#quickQuillyForm {
     cursor: pointer;
     outline: 0;
 }
+
+.line-through {
+    text-decoration: line-through;
+}
