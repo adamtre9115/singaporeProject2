@@ -1,4 +1,4 @@
-main {
+div#indexPage {
     display: grid;
     grid-template-rows: 100vh;
     grid-template-columns: 20vw 20vw 20vw 20vw 20vw;
@@ -17,7 +17,7 @@ svg {
 svg text {
     text-anchor: middle;
     font-size: 18em;
-    font-family: 'Megrim', cursive;
+    font-family: "Megrim", Helvetica, sans-serif;
     font-weight: bold;
 }
 
@@ -26,9 +26,89 @@ svg mask rect {
 }
 
 svg>rect {
-    fill: rgba(0, 0, 0, 0.719);
+    fill: rgba(0, 0, 0, 0.637);
     -webkit-mask: url(#mask);
     mask: url(#mask);
+}
+
+div#loginBox {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 37vh;
+    width: 30vw;
+    top: 50%;
+    left: 35%;
+    background-color: rgba(240, 236, 236, 0.658);
+    border: 0.03vw solid rgba(247, 247, 247, 0.664);
+    border-radius: 2%;
+    position: fixed;
+    box-shadow: 0 1vw 2vw rgba(0, 0, 0, .6);
+    z-index: 1000;
+}
+
+#loginForm {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+#loginHeading {
+    margin-top: 2vh;
+    padding: 1vh;
+    color: rgb(22, 22, 22);
+    font-size: 1.3em;
+    text-shadow: 0.04vw 0.04vw rgb(236, 236, 236);
+    font-weight: bold;
+    font-family: "Megrim", Helvetica, sans-serif;
+    letter-spacing: 0.4em;
+}
+
+.inputField {
+    width: 19vw;
+    height: 4.5vh;
+    line-height: 2em;
+    font-size: 1em;
+    padding: 0.3vh;
+    margin: 1vh;
+    outline: 0;
+    letter-spacing: 0.4em;
+    background-color: rgba(241, 237, 237, 0.795);
+    font-style: italic;
+    font-family: "Federo", Helvetica, sans-serif;
+}
+
+#regSubmit {
+    font-family: "Federo", Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 0.6vw;
+    font-size: 1em;
+    padding: 0.7vw 1vw;
+    border-radius: 2%;
+    background-color: rgba(0, 0, 0, 0.795);
+    color: rgba(204, 200, 200, 0.911);
+    letter-spacing: 0.3em;
+    border: 0.05vw solid rgba(58, 57, 57, 0.664);
+    box-shadow: 0 0.1vw 0.4vw rgba(0, 0, 0, .6);
+    cursor: pointer;
+    outline: 0;
+}
+
+#regSubmit:hover {
+    transform: scale(1.1);
+    letter-spacing: 0.4em;
+    font-size: 1em;
+    outline: 0;
+    color: rgb(228, 227, 227);
+}
+
+#regSubmit:active {
+    background-color: rgba(255, 80, 45, 0.897);
+    text-shadow: 0.1vw 0.1vw rgb(167, 54, 31);
+    color: rgb(228, 227, 227);
+    font-style: italic;
+    font-weight: bolder;
+    outline: 0;
 }
 
 section {

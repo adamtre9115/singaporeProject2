@@ -9,26 +9,30 @@ var srcArr = [
     "assets/images/beach_sunset.mp4",
     "assets/images/snowfall.mp4",
     "assets/images/sunset_clouds.mp4",
-    "assets/images/flowering_tree.mp4",
     "assets/images/green_forest.mp4",
     "assets/images/sunset_lake.mp4",
-    "assets/images/sunrise.mp4",
     "assets/images/sea_cliff.mp4"
 ];
 
 var vidColumn;
+let srcArrCopy = srcArr.map((val) => {
+    return val;
+});
+console.log(srcArrCopy);
 
 // // var newPoster = 'images/video-cover.jpg'; would need to make it an object with src and poster
 
 // //Get random src from array and ensure not repeated until all have been played
 function getRandSrc() {
-    var copyArr = srcArr.slice(0);
-    if (copyArr.length < 1) {
-        copyArr = srcArr.slice(0);
-    }
-    var randNum = Math.floor(Math.random() * copyArr.length);
-    var randSrc = copyArr[randNum];
-    copyArr.splice(randNum, 1);
+
+
+    // if (copyArr.length < 1) {
+    //     copyArr = srcArr.slice();
+    // }
+    var randNum = Math.floor(Math.random() * srcArrCopy.length);
+    var randSrc = srcArrCopy[randNum];
+    srcArrCopy.splice(randNum, 1);
+
     return randSrc;
 }
 
@@ -58,6 +62,7 @@ pauseVid = () => {
 for (var i = 0; i < 5; i++) {
     vidColumn = $("video")[i];
     vidColumn.src = getRandSrc();
+  
     // vidSection.setAttribute('poster', newPoster);
     vidColumn.load();
     vidColumn.play();

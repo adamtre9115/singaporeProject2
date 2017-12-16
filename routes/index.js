@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-
+var db = require('../models/index');
+// var client = require('../controller/appController');
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.render('pages/index', {
@@ -25,8 +26,35 @@ router.get('/personal', function (req, res, next) {
 //not sure if this is important
 router.post('/createUser', function (req, res, next) {
   console.log(req.body);
-
+  db.users.create({
+      userName: req.body.email,
+      password: req.body.password
+    }).then(function (quote_db) {
+      // We have access to the new quote as an argument inside of the callback function
+      res.json(quote_db);
+    })
+    .catch(function (err) {
+      // Whenever a validation or flag fails, an error is thrown
+      // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+      res.json(err);
+    });
   // redirect to other page
-  res.redirect("index");
+  res.redirect("main");
 });
+
+router.post('/twilio', function (req, res, next) {
+  var accountSid = 'ACd5de8965aeec23e5c026e0c1a9e2cb1d'; // Your Account SID from www.twilio.com/console
+  var authToken = '0ca4c9f851a87c2f55b30f4515309f03'; // Your Auth Token from www.twilio.com/console
+  console.log(req.body);
+  var twilio = require('twilio');
+  var client = new twilio(accountSid, authToken);
+  client.messages.create({
+      body: req.body.message,
+      to: '+1' + req.body.phoneNum, // Text this number
+      from: '+17045869305', // From a valid Twilio number
+    })
+    .then((message) => console.log(message.sid), console.log("yessir"));
+  res.redirect("main");
+});
+
 module.exports = router;

@@ -7,7 +7,6 @@ var bodyParser = require('body-parser');
 var ejsLayouts = require("express-ejs-layouts");
 
 var index = require('./routes/index');
-var users = require('./routes/users');
 const db = require("./models");
 var app = express();
 const port = process.env.PORT || 3000;
@@ -27,8 +26,10 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
-app.use('/users', users);
+
+// ############### MIGHT NEED ###############
 require("./routes/api-routes.js")(app);
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     var err = new Error('Not Found');

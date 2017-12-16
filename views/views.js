@@ -1,16 +1,16 @@
 console.log("HI");
 $(document).ready(function () {
   // Getting a reference to the input field where user adds a new quote
-  var $newItemInput = $("input.new-item");
+  var $newItemInput = $("#newInput");
   // Our new quotes will go inside the quoteContainer
-  var $quoteContainer = $(".quotes-container");
+  var $quoteContainer = $(".tableTest");
   // Adding event listeners for deleting, editing, and adding quotes
   $(document).on("click", "button.delete", deleteQuote);
   $(document).on("click", "button.complete", toggleComplete);
-  $(document).on("click", ".quotes-item", editQuote);
-  $(document).on("keyup", ".quotes-item", finishEdit);
-  $(document).on("blur", ".quotes-item", cancelEdit);
-  $(document).on("submit", "#quotes-form", insertQuote);
+  $(document).on("click", ".quote-item", editQuote);
+  $(document).on("keyup", ".quote-item", finishEdit);
+  $(document).on("blur", ".quote-item", cancelEdit);
+  $(document).on("click", "#addNeverForget", insertQuote);
 
   // Our initial quotes array
   var quotes = [];
@@ -58,9 +58,9 @@ $(document).ready(function () {
   // Toggles complete status
   function toggleComplete(event) {
     event.stopPropagation();
-    var quotes = $(this).parent().data("quotes");
+    var quotes = $(this).parent().data("quote");
     quotes.complete = !quotes.complete;
-    updateQuote(quote);
+    updateQuote(quotes);
   }
 
   // This function starts updating a quote in the database if a user hits the "Enter Key"
@@ -75,7 +75,7 @@ $(document).ready(function () {
   }
 
   // This function updates a quote in our database
-  function updateQuotes(quotes) {
+  function updateQuote(quotes) {
     $.ajax({
       method: "PUT",
       url: "/api/quotes",
@@ -112,7 +112,7 @@ $(document).ready(function () {
 
     $newInputRow.find("button.delete").data("id", quotes.id);
     $newInputRow.find("input.edit").css("display", "none");
-    $newInputRow.data("quotes", quotes);
+    $newInputRow.data("quote", quotes);
     if (quotes.complete) {
       $newInputRow.find("span").css("text-decoration", "line-through");
     }
@@ -122,8 +122,8 @@ $(document).ready(function () {
   // This function inserts a new quote into our database and then updates the view
   function insertQuote(event) {
     event.preventDefault();
-    var quote = {
-      text: $newItemInput.val().trim(),
+    var quotes = {
+      text: $newItemInput.val(),
       complete: false
     };
 
