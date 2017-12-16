@@ -25,20 +25,53 @@
             </div>
         </div>
     </div>
+
     <div class="input-container">
         <div class="panel panel-default">
             <div class="panel-heading" id="header">Add Custom "Never Forget" to Library</div>
+
             <form>
                 <div class="form-group">
                     <label for="NewNeverForget">New "Never Forget"</label>
                     <input type="text" class="form-control" id="newInput" placeholder="'Either write something worth reading or do something worth writing' -Benjamin Franklin"
                         required>
                 </div>
-                <button class="btn btn-primary" id="addNeverForget">Add</button>
+                <button type="submit" class="btn btn-primary" id="addNeverForget">Add</button>
             </form>
         </div>
     </div>
 </div>
+
+<!-- <div id="persQuillyContainer">
+    <form id="persQuillyForm" method="post">
+        <h3 id="persQuillyHeading">Quilly</h3>
+        <label>
+            Send Time:
+            <input type="text " class="inputField" tabindex="1" placeholder="11:15AM" required autofocus>
+        </label>
+        <label>
+            Send To:
+            <span id="countryCode">+1
+                <input type="tel" class="inputField" tabindex="2" placeholder="555-555-5555" required>
+            </span>
+        </label>
+        <p>
+            <label>
+                Message:
+
+                <textarea id="quillyMsg" class="inputField" tabindex="3" maxlength="180" placeholder="You aced that presentation! Grab yourself a cold one ;)"
+                    required></textarea>
+                <h5 id="charLeft">
+                    <span id="charCount">180 </span>Characters Remaining</h5>
+            </label>
+        </p>
+        <label>
+            <button type="submit" id="submitPersQuilly" class="send" data-submit="Quilly Scheduled">Submit Quilly</button>
+        </label>
+    </form>
+</div> -->
+
+<script type="text/javascript" src="assets/js/personal.js"></script>
 <script type="text/javascript">
     console.log("HI");
     $(document).ready(function () {
@@ -166,7 +199,7 @@
             event.preventDefault();
             var quotes = {
                 text: $newItemInput.val(),
-                complete: false
+                complete: false,
             };
 
             $.post("/api/quotes", quotes, getQuotes);

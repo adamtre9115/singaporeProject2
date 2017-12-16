@@ -1,3 +1,84 @@
+div#persQuillyContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 80vh;
+    width: 70vw;
+    top: 10%;
+    left: 15%;
+    background-color: rgba(240, 236, 236, 0.836);
+    border: 0.03vw solid rgba(247, 247, 247, 0.664);
+    position: fixed;
+    box-shadow: 0 1vw 2vw rgba(0, 0, 0, .6);
+    z-index: 100;
+}
+
+form#persQuillyForm {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    font-family: "Federo", Helvetica, sans-serif;
+}
+
+#persQuillyHeading {
+    text-align: center;
+    margin-top: 2.5vh;
+    margin: 3vh;
+    color: rgb(22, 22, 22);
+    font-size: 2em;
+    text-shadow: 0.04vw 0.04vw rgb(236, 236, 236);
+    font-weight: bold;
+    font-family: "Megrim", Helvetica, sans-serif;
+    letter-spacing: 0.6em;
+}
+
+.inputField {
+    width: 24vw;
+    height: 6.1vh;
+    line-height: 2em;
+    font-size: 1em;
+    padding: 0.7vh;
+    margin: 1vw;
+    outline: 0;
+    letter-spacing: 0.4em;
+    background-color: rgba(241, 237, 237, 0.795);
+    font-style: italic;
+    font-family: "Federo", Helvetica, sans-serif;
+}
+
+#countryCode {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+#quillyMsg {
+    width: 60vw;
+    height: 20vh;
+    padding: 0.7vh;
+    margin-bottom: 3vh;
+}
+
+#charLeft {
+    font-size: 0.9em;
+    color: rgb(59, 58, 58);
+}
+
+#submitPersQuilly {
+    font-family: "Federo", Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 6vh;
+    font-size: 1.3em;
+    padding: 2vh 3vw;
+    background-color: rgba(0, 0, 0, 0.795);
+    color: rgba(204, 200, 200, 0.911);
+    letter-spacing: 0.4em;
+    border: 0.05vw solid rgba(58, 57, 57, 0.664);
+    box-shadow: 0 0.1vw 0.4vw rgba(0, 0, 0, .6);
+    cursor: pointer;
+    outline: 0;
+}
+
 #image-div {
     background: url("../images/#") no-repeat center center;
     background-size: cover;
