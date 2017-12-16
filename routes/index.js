@@ -27,7 +27,7 @@ router.get('/personal', function (req, res, next) {
 router.post('/createUser', function (req, res, next) {
   console.log(req.body);
   db.users.create({
-      userName: req.body.email,
+      userName: req.body.userName,
       password: req.body.password
     }).then(function (quote_db) {
       // We have access to the new quote as an argument inside of the callback function
