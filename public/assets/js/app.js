@@ -23,11 +23,9 @@ $(document).ready(function () {
 
 
     // ##### Quick Quote #####
-
     $("#submitQuickQuilly").on("click", function (e) {
         e.preventDefault();
-        console.log("YYOOOO");
-        var message = $("#quillyMsg").val().trim();;
+        var message = $("#quillyMsg").val().trim();
         var time = $("#qqTime").val().trim();
         var phone = $("#qqPhone").val().trim();
         // Grab user input for text and time and send data to twilio
@@ -40,19 +38,18 @@ $(document).ready(function () {
     });
 
     // ##### Random #####
+    $("#randQuote").on("click", function (e) {
+        e.preventDefault();
+        // Grab API quote
+        var twilioData = {
+            message: randomQuote,
+            time: $("#randTime").val(),
+            phoneNum: $("#randPhone").val()
+        }
 
-    // $("#randQuote").on("click", function (e) {
-    //     e.preventDefault();
-    //     // Grab API quote
-    //     var randQuote = "*** API CALL ***"; // Import this
-    //     // Get time
-    //     var sendTime = $("#randTime").val();
-    //     // Get phone number
-    //     var randPhone = $("#randPhone").val();
-    //     console.log(randQuote, sendTime, randPhone);
-    //     // Send info to twilio 
-    //     twilio(randQuote, sendTime, randPhone);
-    // });
+        // Send info to twilio
+        $.post("/twilio", twilioData, function () {});
+    });
 
     // ### MAYBE ADD LATER ####
     // Option to store quote in SQL (checkbox maybe)

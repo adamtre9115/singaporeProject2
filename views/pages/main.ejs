@@ -1,41 +1,42 @@
-<form id="personalLibrary" action="/personal" method="POST">
-    <button id="personalLibraryBtn">Visit My Personal Library</button>
-</form>
-<div id="quoteDisplay"></div>
-<section id="quickQuilly">
-    <div id="quickQuillyBtn" class="btn">
-        <div class="btn-front">Cue a Quick Quilly</div>
-        <div class="btn-back">
-            <form id="quickQuillyForm" method="POST">
-                <h3>Quick Quilly</h3>
-                <h4>In a hurry? Create a Quick Quilly with your custom message!</h4>
+<div id="mainPage">
+    <form action="/personal" method="GET">
+        <button id="personalLibrary" class="mainPageBtn" type="submit">Visit Personal Library</button>
+    </form>
+    <button id="searchQuotes" class="mainPageBtn" type="submit">Search for Quotes</button>
+    <button id="quickQuilly" class="mainPageBtn btn-front" type="submit">Send Quick Quilly</button>
+    <div id="quickContainer">
+        <form id="quickQuillyForm" method="POST">
+            <h3 id="quickHeading">Quick Quilly</h3>
+            <h4 id="quickSubh">In a hurry? Create a Quick Quilly with your custom message!</h4>
+            <label>
+                Send Time:
+                <input id="qqTime" type="text " class="inputField" tabindex="1" placeholder="11:15AM" required autofocus>
+            </label>
+            <label>
+                <br />Send To:
+                <span id="countryCode">+1
+                    <input id="qqPhone" type="tel" class="inputField" tabindex="2" placeholder="555-555-5555" required>
+                </span>
+            </label>
+            <p>
                 <label>
-                    Send Time:
-                    <input id="qqTime" type="text" tabindex="1" placeholder="11:15AM" required autofocus>
+                    Message:
+                    <br />
+                    <textarea id="quillyMsg" class="inputField" tabindex="3" maxlength="180" placeholder="You aced that presentation! Grab yourself a cold one ;)"
+                        required></textarea>
+                    <h5 id="charLeft">
+                        <span id="charCount">180 </span>Characters Remaining</h5>
                 </label>
-                <br />
-                <label>
-                    Send To:
-                    <span id="countryCode">+1
-                        <input id="qqPhone" type="tel" tabindex="2" placeholder="555-555-5555" required>
-                    </span>
-                </label>
-                <p>
-                    <label>
-                        Message:
-                        <textarea id="quillyMsg" tabindex="3" maxlength="180" placeholder="You aced that presentation! You've earned yourself a cold one ;)"
-                            required></textarea>
-                        <h5>
-                            <span id="charCount">180 </span>Characters Remaining</h5>
-                    </label>
-                </p>
-                <label>
-                    <button type="submit" id="submitQuickQuilly" data-submit="Quilly Scheduled">Submit Quilly</button>
-                </label>
-            </form>
-        </div>
+            </p>
+            <label>
+                <button type="submit" id="submitQuickQuilly" class="send" data-submit="Quilly Scheduled">Submit Quilly</button>
+            </label>
+        </form>
     </div>
-</section>
-<section id="searchQuotes">
-    <button id="searchQuotesBtn">Search for fresh inspiration in our popular quotes database!</button>
-</section>
+</div>
+
+
+<!-- <div id="quoteDisplay"></div> -->
+
+
+<script type="text/javascript" src="assets/js/main.js"></script>

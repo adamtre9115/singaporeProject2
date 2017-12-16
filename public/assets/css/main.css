@@ -1,252 +1,151 @@
-    /* * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-
-    html,
-    body {
-        height: 100vh;
-        width: 100vw;
-        overflow: hidden;
-    }
-
-    body {
-        display: grid;
-        grid-template-rows: 30vh 30vh 30vh;
-        grid-template-columns: 100vw;
-        grid-template-areas: "personalLibrary quickQuilly searchQuotes";
-        grid-gap: 5vw;
-    }
-
-    section#personalLibrary {
-        grid-area: column1;
-        grid-row: 1;
-    }
-
-    button#personalLibraryBtn {
-        height: 20vh;
-        width: 50vw;
-        border: 1vw dotted white;
-        background: rgb(73, 202, 241) url("libraryBtn.jpeg") no-repeat fixed center;
-    }
-
-    section#quickQuilly {
-        grid-area: column1;
-        grid-row: 2;
-    }
-
-    button#quickQuillyBtn {
-        height: 20vh;
-        width: 50vw;
-        border: 1vw dotted white;
-    }
-
-    section#searchQuotes {
-        grid-area: column1;
-        grid-row: 3;
-    }
-
-    button#searchQuotesBtn {
-        height: 20vh;
-        width: 50vw;
-        border: 1vw dotted white;
-        background: lightblue url("inspiration.jpg") no-repeat fixed center;
-    } */
-    /* .btn {
-    text-align: center;
-    cursor: pointer;
-    padding: 0;
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-    margin-top: 6%;
-    position: relative;
-    z-index: 4;
-    display: inline-block;
-    -webkit-transition: width 0.8s cubic-bezier(0.23, 1, 0.32, 1), height 0.8s cubic-bezier(0.23, 1, 0.32, 1), -webkit-transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    transition: width 0.8s cubic-bezier(0.23, 1, 0.32, 1), height 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    -webkit-transform-origin: 50% 50%;
-    -ms-transform-origin: 50% 50%;
-    transform-origin: 50% 50%;
+div#mainPage {
+    display: grid;
+    grid-template-rows: 5% 20vh 20vh 20vh 5%;
+    grid-template-columns: auto 60vw auto;
+    grid-template-areas: "... ... ..." "... personalLibrary ..." "... searchQuotes ..." "... quickQuilly ..." "... ... ...";
+    grid-row-gap: 10%;
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 304 304' width='304' height='304'%3E%3Cpath fill='%23f0f0f0' fill-opacity='0.36' d='M44.1 224a5 5 0 1 1 0 2H0v-2h44.1zm160 48a5 5 0 1 1 0 2H82v-2h122.1zm57.8-46a5 5 0 1 1 0-2H304v2h-42.1zm0 16a5 5 0 1 1 0-2H304v2h-42.1zm6.2-114a5 5 0 1 1 0 2h-86.2a5 5 0 1 1 0-2h86.2zm-256-48a5 5 0 1 1 0 2H0v-2h12.1zm185.8 34a5 5 0 1 1 0-2h86.2a5 5 0 1 1 0 2h-86.2zM258 12.1a5 5 0 1 1-2 0V0h2v12.1zm-64 208a5 5 0 1 1-2 0v-54.2a5 5 0 1 1 2 0v54.2zm48-198.2V80h62v2h-64V21.9a5 5 0 1 1 2 0zm16 16V64h46v2h-48V37.9a5 5 0 1 1 2 0zm-128 96V208h16v12.1a5 5 0 1 1-2 0V210h-16v-76.1a5 5 0 1 1 2 0zm-5.9-21.9a5 5 0 1 1 0 2H114v48H85.9a5 5 0 1 1 0-2H112v-48h12.1zm-6.2 130a5 5 0 1 1 0-2H176v-74.1a5 5 0 1 1 2 0V242h-60.1zm-16-64a5 5 0 1 1 0-2H114v48h10.1a5 5 0 1 1 0 2H112v-48h-10.1zM66 284.1a5 5 0 1 1-2 0V274H50v30h-2v-32h18v12.1zM236.1 176a5 5 0 1 1 0 2H226v94h48v32h-2v-30h-48v-98h12.1zm25.8-30a5 5 0 1 1 0-2H274v44.1a5 5 0 1 1-2 0V146h-10.1zm-64 96a5 5 0 1 1 0-2H208v-80h16v-14h-42.1a5 5 0 1 1 0-2H226v18h-16v80h-12.1zm86.2-210a5 5 0 1 1 0 2H272V0h2v32h10.1zM98 101.9V146H53.9a5 5 0 1 1 0-2H96v-42.1a5 5 0 1 1 2 0zM53.9 34a5 5 0 1 1 0-2H80V0h2v34H53.9zm60.1 3.9V66H82v64H69.9a5 5 0 1 1 0-2H80V64h32V37.9a5 5 0 1 1 2 0zM101.9 82a5 5 0 1 1 0-2H128V37.9a5 5 0 1 1 2 0V82h-28.1zm16-64a5 5 0 1 1 0-2H146v44.1a5 5 0 1 1-2 0V18h-26.1zm102.2 270a5 5 0 1 1 0 2H98v14h-2v-16h124.1zM242 149.9V160h16v34h-16v62h48v48h-2v-46h-48v-66h16v-30h-16v-12.1a5 5 0 1 1 2 0zM53.9 18a5 5 0 1 1 0-2H64V2H48V0h18v18H53.9zm112 32a5 5 0 1 1 0-2H192V0h50v2h-48v48h-28.1zm-48-48a5 5 0 0 1-9.8-2h2.07a3 3 0 1 0 5.66 0H178v34h-18V21.9a5 5 0 1 1 2 0V32h14V2h-58.1zm0 96a5 5 0 1 1 0-2H137l32-32h39V21.9a5 5 0 1 1 2 0V66h-40.17l-32 32H117.9zm28.1 90.1a5 5 0 1 1-2 0v-76.51L175.59 80H224V21.9a5 5 0 1 1 2 0V82h-49.59L146 112.41v75.69zm16 32a5 5 0 1 1-2 0v-99.51L184.59 96H300.1a5 5 0 0 1 3.9-3.9v2.07a3 3 0 0 0 0 5.66v2.07a5 5 0 0 1-3.9-3.9H185.41L162 121.41v98.69zm-144-64a5 5 0 1 1-2 0v-3.51l48-48V48h32V0h2v50H66v55.41l-48 48v2.69zM50 53.9v43.51l-48 48V208h26.1a5 5 0 1 1 0 2H0v-65.41l48-48V53.9a5 5 0 1 1 2 0zm-16 16V89.41l-34 34v-2.82l32-32V69.9a5 5 0 1 1 2 0zM12.1 32a5 5 0 1 1 0 2H9.41L0 43.41V40.6L8.59 32h3.51zm265.8 18a5 5 0 1 1 0-2h18.69l7.41-7.41v2.82L297.41 50H277.9zm-16 160a5 5 0 1 1 0-2H288v-71.41l16-16v2.82l-14 14V210h-28.1zm-208 32a5 5 0 1 1 0-2H64v-22.59L40.59 194H21.9a5 5 0 1 1 0-2H41.41L66 216.59V242H53.9zm150.2 14a5 5 0 1 1 0 2H96v-56.6L56.6 162H37.9a5 5 0 1 1 0-2h19.5L98 200.6V256h106.1zm-150.2 2a5 5 0 1 1 0-2H80v-46.59L48.59 178H21.9a5 5 0 1 1 0-2H49.41L82 208.59V258H53.9zM34 39.8v1.61L9.41 66H0v-2h8.59L32 40.59V0h2v39.8zM2 300.1a5 5 0 0 1 3.9 3.9H3.83A3 3 0 0 0 0 302.17V256h18v48h-2v-46H2v42.1zM34 241v63h-2v-62H0v-2h34v1zM17 18H0v-2h16V0h2v18h-1zm273-2h14v2h-16V0h2v16zm-32 273v15h-2v-14h-14v14h-2v-16h18v1zM0 92.1A5.02 5.02 0 0 1 6 97a5 5 0 0 1-6 4.9v-2.07a3 3 0 1 0 0-5.66V92.1zM80 272h2v32h-2v-32zm37.9 32h-2.07a3 3 0 0 0-5.66 0h-2.07a5 5 0 0 1 9.8 0zM5.9 0A5.02 5.02 0 0 1 0 5.9V3.83A3 3 0 0 0 3.83 0H5.9zm294.2 0h2.07A3 3 0 0 0 304 3.83V5.9a5 5 0 0 1-3.9-5.9zm3.9 300.1v2.07a3 3 0 0 0-1.83 1.83h-2.07a5 5 0 0 1 3.9-3.9zM97 100a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-48 32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32 48a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16-64a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 96a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-144a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-96 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm96 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16-64a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-32 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM49 36a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-32 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM33 68a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-48a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 240a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16-64a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm80-176a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32 48a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm112 176a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM17 180a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM17 84a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32 64a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6z'%3E%3C/path%3E%3C/svg%3E");
 }
 
-.btn-front {
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
-    width: 32%;
-    height: 24%;
-    text-align: center;
-    letter-spacing: 0.2em;
-    font-family: "Josefin Sans", Helvetica, sans-serif;
-    font-size: 1.6em;
-    line-height: 3em;
-    padding: 0.5em 1.5em;
-    text-decoration: none;
-    text-shadow: 0.1em 0.1em 0 rgba(0, 0, 0, 0.3);
-    color: rgba(241, 230, 185, 0.767);
-    border: 0.1em solid rgb(206, 100, 62);
-    background-color: rgb(235, 124, 99);
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(235, 124, 99)), to(rgb(175, 73, 50)));
-    background-image: -webkit-linear-gradient(top, rgb(235, 124, 99), rgb(175, 73, 50));
-    background-image: -moz-linear-gradient(top, rgb(235, 124, 99), rgb(175, 73, 50));
-    background-image: -ms-linear-gradient(top, rgb(235, 124, 99), rgb(175, 73, 50));
-    background-image: -o-linear-gradient(top, rgb(235, 124, 99), rgb(175, 73, 50));
-    background-image: linear-gradient(to bottom, rgb(235, 124, 99), rgb(175, 73, 50));
-    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=rgb(235, 124, 99), endColorstr=rgb(175, 73, 50));
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-transition: background 0.15s ease, line-height 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-    transition: background 0.15s ease, line-height 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.btn-front:hover {
-    border: 0.1em solid rgb(241, 166, 138);
-    color: rgba(250, 247, 225, 0.849);
-    text-decoration: none;
-    text-shadow: 0.1em 0.1em 0 rgba(80, 38, 3, 0.562);
-    background-color: rgb(236, 158, 142);
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(175, 91, 74)), to(rgb(228, 150, 114)));
-    background-image: -webkit-linear-gradient(top, rgb(175, 91, 74), rgb(228, 150, 114));
-    background-image: -moz-linear-gradient(top, rgb(175, 91, 74), rgb(228, 150, 114));
-    background-image: -ms-linear-gradient(top, rgb(175, 91, 74), rgb(228, 150, 114));
-    background-image: -o-linear-gradient(top, rgb(175, 91, 74), rgb(228, 150, 114));
-    background-image: linear-gradient(to bottom, rgb(175, 91, 74), rgb(228, 150, 114));
-    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=rgb(175, 91, 74), endColorstr=rgb(228, 150, 114));
-}
-
-.btn-front:active {
-    border: 0.1em solid rgb(247, 144, 104);
-    color: rgba(228, 108, 43, 0.849);
-    text-decoration: none;
-    text-shadow: 0.1em 0.1em 0 rgba(226, 143, 75, 0.562);
-    background-color: rgb(241, 222, 117);
-    background-image: -webkit-gradient(linear, left top, left bottom, from rgb(241, 222, 117), to(rgb(216, 165, 72)));
-    background-image: -webkit-linear-gradient(top, rgb(241, 222, 117), rgb(216, 165, 72));
-    background-image: -moz-linear-gradient(top, rgb(241, 222, 117), rgb(216, 165, 72));
-    background-image: -ms-linear-gradient(top, rgb(241, 222, 117), rgb(216, 165, 72));
-    background-image: -o-linear-gradient(top, rgb(241, 222, 117), rgb(216, 165, 72));
-    background-image: linear-gradient(to bottom, rgb(241, 222, 117), rgb(216, 165, 72));
-    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=rgb(241, 222, 117), endColorstr=rgb(216, 165, 72));
-}
-
-.btn-back {
-    top: 0;
-    visibility: hidden;
-    cursor: pointer;
-    font-family: "Josefin Sans", Helvetica, sans-serif;
-    font-size: 1.1em;
-    padding: 2em 1.7em;
-    display: block;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    letter-spacing: 0.2em;
-    background-color: rgba(51, 49, 49, 0.74);
-    color: rgb(252, 247, 247);
-    -webkit-transform: translateZ(-2px) rotateX(180deg);
-    transform: translateZ(-2px) rotateX(180deg);
-    overflow: hidden;
-    -webkit-transition: box-shadow 0.8s ease;
-    transition: box-shadow 0.8s ease;
-}
-
-.btn-back p {
-    font-size: 1.7em;
-    line-height: 2em;
-    text-shadow: 0.1em 0.1em 0 rgba(37, 35, 35, 0.74);
-}
-
-p>span {
-    color: rgb(248, 86, 61);
-}
-
-button>span {
-    color: rgb(12, 119, 119);
-    text-shadow: 0.05em 0.05em 0 rgba(29, 214, 218, 0.74);
-}
-
-.btn-back button {
-    border: 0.2em dashed rgb(63, 235, 209);
-    color: rgb(63, 235, 209);
-    padding: 0.35em 1.2em;
-    margin-top: 1.5em;
-    margin-bottom: 0.2em;
-    letter-spacing: 0.2em;
-    background-color: transparent;
+button.mainPageBtn {
     border-radius: 1em;
-    font-size: 1.5em;
-    line-height: 30px;
-    cursor: pointer;
-    -webkit-appearance: none;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-transition: background 0.15s ease;
-    transition: background 0.15s ease;
+    object-fit: contain;
+    box-shadow: 0 1vw 2.5vw rgba(0, 0, 0, .6);
+    border: 0.1vh solid rgba(146, 145, 145, 0.726);
+    font-family: "Megrim", Helvetica, sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+    letter-spacing: 0.4em;
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 0.1em rgb(207, 207, 207), 0 0 0.2em rgb(207, 207, 207), 0 0 0.4em rgb(207, 207, 207), 0 0 0.5em rgb(207, 207, 207), 0 0 0.6em rgb(207, 207, 207), 0 0 0.65em rgb(207, 207, 207), 0 0 0.7em rgb(207, 207, 207);
+    /* text-shadow: 0.04vw 0.04vw rgb(51, 50, 50); */
+    text-align: center;
+    text-transform: uppercase;
 }
 
-.btn-back button:focus {
+button.mainPageBtn:hover {
+    transform: scale(1.1);
+    letter-spacing: 0.5em;
+    font-size: 2em;
     outline: 0;
 }
 
-.btn-back button.confirm:hover {
-    background-color: rgb(2, 89, 92);
-    border: 0.2em solid rgb(9, 101, 104);
-    color: rgb(255, 255, 255);
-    text-shadow: 0.05em 0.05em 0 rgba(3, 56, 56, 0.651);
+button.mainPageBtn:active {
+    box-shadow: 0 1vw 2.5vw rgba(255, 80, 45, 0.897);
+    font-style: italic;
+    font-weight: bolder;
+    outline: 0;
 }
 
-button.confirm:hover>span {
-    color: rgb(29, 214, 218);
-    text-shadow: 0.05em 0.05em 0 rgba(11, 129, 129, 0.74);
+button#personalLibrary {
+    grid-area: personalLibrary;
+    background: url("../images/bookshelf.jpeg") no-repeat center;
 }
 
-.btn-back button.confirm:active {
-    color: rgb(11, 129, 129);
-    text-shadow: 0.05em 0.05em 0 rgba(29, 214, 218, 0.753);
-    background-color: rgb(255, 255, 255);
-    border: 0.2em solid rgb(9, 101, 104);
+button#searchQuotes {
+    grid-area: searchQuotes;
+    background: url("../images/lightbulbs.jpeg") no-repeat center;
 }
 
-button.confirm:active>span {
-    color: rgb(29, 214, 218);
-    text-shadow: 0.05em 0.05em 0 rgba(11, 129, 129, 0.74);
+button#quickQuilly {
+    grid-area: quickQuilly;
+    background: url("../images/mailbox.jpeg") no-repeat center;
 }
 
-.btn[data-direction="left"] .btn-back,
-.btn[data-direction="right"] .btn-back {
-    -webkit-transform: translateZ(-2px) rotateY(180deg);
-    transform: translateZ(-2px) rotateY(180deg);
+div#quickContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 82vh;
+    width: 70vw;
+    top: 9%;
+    left: 15%;
+    background-color: rgba(240, 236, 236, 0.836);
+    border: 0.03vw solid rgba(247, 247, 247, 0.664);
+    position: fixed;
+    box-shadow: 0 1vw 2vw rgba(0, 0, 0, .6);
+    z-index: -100;
 }
 
-.btn.is-open .btn-front {
-    pointer-events: none;
-    line-height: 160px;
+form#quickQuillyForm {
+    height: 100%;
+    width: 100%;
+    padding-left: 2vw;
+    position: relative;
+    font-family: "Federo", Helvetica, sans-serif;
+    text-align: left;
 }
 
-.btn.is-open .btn-back {
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+#quickHeading {
+    text-align: center;
+    margin-top: 2.5vh;
+    padding: 1vh;
+    color: rgb(22, 22, 22);
+    font-size: 2em;
+    text-shadow: 0.04vw 0.04vw rgb(236, 236, 236);
+    font-weight: bold;
+    font-family: "Megrim", Helvetica, sans-serif;
+    letter-spacing: 0.6em;
 }
 
-.btn[data-direction="top"].is-open {
-    -webkit-transform: rotateX(180deg);
-    transform: rotateX(180deg);
+#quickSubh {
+    margin-bottom: 1vh;
+    text-align: center;
+    padding: 1vh;
+    color: rgb(22, 22, 22);
+    font-size: 0.9em;
+    text-shadow: 0.04vw 0.04vw rgb(236, 236, 236);
+    font-family: "Federo", Helvetica, sans-serif;
+    line-height: 1.6em;
+    letter-spacing: 0.5em;
 }
 
-.btn[data-direction="right"].is-open {
-    -webkit-transform: rotateY(180deg);
-    transform: rotateY(180deg);
+.inputField {
+    width: 24vw;
+    height: 6.1vh;
+    line-height: 2em;
+    font-size: 1em;
+    padding: 0.7vh;
+    margin: 2.5vh;
+    outline: 0;
+    letter-spacing: 0.4em;
+    background-color: rgba(241, 237, 237, 0.795);
+    font-style: italic;
+    font-family: "Federo", Helvetica, sans-serif;
 }
 
-.btn[data-direction="bottom"].is-open {
-    -webkit-transform: rotateX(-180deg);
-    transform: rotateX(-180deg);
+#countryCode {
+    font-weight: bold;
+    font-size: 1.1em;
 }
 
-.btn[data-direction="left"].is-open {
-    -webkit-transform: rotateY(-180deg);
-    transform: rotateY(-180deg);
-} */
+#quillyMsg {
+    width: 60vw;
+    height: 16vh;
+    padding: 0.7vh;
+    margin-bottom: 1vh;
+}
+
+#charLeft {
+    margin-top: 0.5em;
+    font-size: 0.9em;
+    color: rgb(59, 58, 58);
+}
+
+#submitQuickQuilly {
+    font-family: "Federo", Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 2vh;
+    margin-left: 32%;
+    font-size: 1.3em;
+    padding: 2vh 3vw;
+    background-color: rgba(0, 0, 0, 0.795);
+    color: rgba(204, 200, 200, 0.911);
+    letter-spacing: 0.4em;
+    border: 0.05vw solid rgba(58, 57, 57, 0.664);
+    box-shadow: 0 0.1vw 0.4vw rgba(0, 0, 0, .6);
+    cursor: pointer;
+    outline: 0;
+}
