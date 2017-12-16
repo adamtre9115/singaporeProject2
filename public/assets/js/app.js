@@ -23,17 +23,20 @@ $(document).ready(function () {
 
 
     // ##### Quick Quote #####
-    $("#submitQuickQuilly").on("click", function (e) {
+    $("#submitPersQuilly").on("click", function (e) {
+        console.log("pushed");
         e.preventDefault();
-        var message = $("#quillyMsg").val().trim();
+        // var message = $("#quillyMsg").val().trim();
         var time = $("#qqTime").val().trim();
         var phone = $("#qqPhone").val().trim();
         // Grab user input for text and time and send data to twilio
         var twilioData = {
-            message: message,
+            // message: message,
             time: time,
             phoneNum: phone
         }
+
+        console.log(twilioData);
         $.post("/twilio", twilioData, function () {});
     });
 
