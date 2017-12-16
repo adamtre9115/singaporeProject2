@@ -23,7 +23,7 @@ $(document).ready(function () {
 
 
     // ##### Quick Quote #####
-    $("#submitQuickQuilly").on("click", function (e) {
+    $("#submitPersQuilly").on("click", function (e) {
         e.preventDefault();
         var message = $("#quillyMsg").val().trim();
         var time = $("#qqTime").val().trim();

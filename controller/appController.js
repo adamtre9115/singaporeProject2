@@ -15,4 +15,4 @@ var randomQuote = request("https://random-quote-generator.herokuapp.com/api/quot
     }
 });
 
-module.exports = randomQuote;
+module.exports = newQuote;
