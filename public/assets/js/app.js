@@ -36,8 +36,7 @@ $(document).ready(function () {
             time: time,
             phoneNum: phone
         }
-        console.log("WHEREA ARE you KLJFLK:D J");
-        $.post("/main", twilioData, function () {});
+        $.post("/twilio", twilioData, function () {});
     });
 
     // ##### Random #####

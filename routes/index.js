@@ -42,19 +42,18 @@ router.post('/createUser', function (req, res, next) {
   res.redirect("main");
 });
 
-router.post('/main', function (req, res, next) {
+router.post('/twilio', function (req, res, next) {
   var accountSid = 'ACd5de8965aeec23e5c026e0c1a9e2cb1d'; // Your Account SID from www.twilio.com/console
   var authToken = '0ca4c9f851a87c2f55b30f4515309f03'; // Your Auth Token from www.twilio.com/console
   console.log(req.body);
   var twilio = require('twilio');
   var client = new twilio(accountSid, authToken);
-  var message = "something";
   client.messages.create({
-      body: message,
-      to: '+17043908893', // Text this number
-      from: '+17043908893' // From a valid Twilio number
+      body: req.body.message,
+      to: '+1' + req.body.phoneNum, // Text this number
+      from: '+17045869305', // From a valid Twilio number
     })
-    .then((message) => console.log(message.sid));
+    .then((message) => console.log(message.sid), console.log("yessir"));
   res.redirect("main");
 });
 
