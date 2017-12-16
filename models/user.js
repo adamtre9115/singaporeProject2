@@ -1,10 +1,10 @@
-// const Sequelize = require("sequelize");
-// const bycrypt = require("bcrypt-nodejs");
-// const connection = require("../config/config.json");
+const Sequelize = require("sequelize");
+const bycrypt = require("bcrypt-nodejs");
+const connection = require("../config/config.json");
 
 
 module.exports = function (sequelize, DataTypes) {
-    var User = sequelize.define("addedUsers", {
+    var User = sequelize.define("users", {
         id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
@@ -16,10 +16,6 @@ module.exports = function (sequelize, DataTypes) {
         },
         password: {
             type: DataTypes.TEXT,
-            allowNull: false
-        },
-        createdAt: {
-            type: DataTypes.DATE,
             allowNull: false
         }
     });
