@@ -3,10 +3,16 @@
 
 // var twilio = require('twilio');
 // var client = new twilio(accountSid, authToken);
+<<<<<<< HEAD
 // var message = "Say hello to your little friend";
 // client.messages.create({
 //         body: ,
 //         to: '', // Text this number
+=======
+// client.messages.create({
+//         body: message,
+//         to: '+17043908893', // Text this number
+>>>>>>> afba72f2eff61ced9051d29fb1c10cc64345aacb
 //         from: '+17045869305' // From a valid Twilio number
 //     })
 //     .then((message) => console.log(message.sid));
