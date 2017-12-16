@@ -40,17 +40,17 @@ button.mainPageBtn:active {
 
 button#personalLibrary {
     grid-area: personalLibrary;
-    /* background: url("../images/bookshelf.jpeg") no-repeat center; */
+    background: url("../images/bookshelf.jpeg") no-repeat center;
 }
 
 button#searchQuotes {
     grid-area: searchQuotes;
-    /* background: url("../images/lightbulbs.jpeg") no-repeat center; */
+    background: url("../images/lightbulbs.jpeg") no-repeat center;
 }
 
 button#quickQuilly {
     grid-area: quickQuilly;
-    /* background: url("../images/mailbox.jpeg") no-repeat center; */
+    background: url("../images/mailbox.jpeg") no-repeat center;
 }
 
 div#quickContainer {
