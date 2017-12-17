@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var db = require('../models/index');
 const request = require("request");
+var schedule = require("node-schedule");
 // var client = require('../controller/appController');
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -44,41 +45,50 @@ router.post('/createUser', function (req, res, next) {
 });
 
 router.post('/twilio', function (req, res, next) {
-  console.log('I WAS POSTING')
 
   let number = req.body.phoneNum
+  let time = req.body.time.split(':'); // capture the time from the client and split it by hour & min
+  let hour = time[0]; // hour is equal to the first half of the split array
+  let min = time[1]; // min is equal to the second half of the split array
 
-  // random quote happens asynchronously and is passed into twilio api
-  let randomQuote = (cb) => {
-    request("https://random-quote-generator.herokuapp.com/api/quotes/random", (error, response, body) => {
-      let quote = JSON.parse(body);
-      console.log(quote.quote)
+  // schedule the message to be sent at the captured time
+  var j = schedule.scheduleJob({
+    hour: hour,
+    minute: min
+  }, function () {
+    console.log("It worked!");
 
-      cb(quote.quote)
+    // random quote happens asynchronously and is passed into twilio api
+    let randomQuote = (cb) => {
+      request("https://random-quote-generator.herokuapp.com/api/quotes/random", (error, response, body) => {
+        let quote = JSON.parse(body);
+        console.log(quote.quote)
 
+        cb(quote.quote)
 
-    });
-  }
-  randomQuote(function (data) {
-
-    // quote is then passed into twilio api and sent as text
-    console.log(data)
-    var accountSid = 'ACd5de8965aeec23e5c026e0c1a9e2cb1d'; // Your Account SID from www.twilio.com/console
-    var authToken = '0ca4c9f851a87c2f55b30f4515309f03'; // Your Auth Token from www.twilio.com/console
-    var twilio = require('twilio');
-    var client = new twilio(accountSid, authToken);
-    console.log(client)
-    client.messages.create({
-      body: data,
-      to: '+1' + number, // Text this number
-      from: '+17045869305', // From a valid Twilio number
-    }).then((data) => {
-      console.log(data.sid)
-      res.json({
-        'hello': data.sid
       });
-    })
+    }
+    randomQuote(function (data) {
 
+      // quote is then passed into twilio api and sent as text
+      console.log(data)
+      var accountSid = 'ACd5de8965aeec23e5c026e0c1a9e2cb1d'; // Your Account SID from www.twilio.com/console
+      var authToken = '0ca4c9f851a87c2f55b30f4515309f03'; // Your Auth Token from www.twilio.com/console
+      var twilio = require('twilio');
+      var client = new twilio(accountSid, authToken);
+
+      client.messages.create({
+        body: data,
+        to: '+1' + number, // Text this number
+        from: '+17045869305', // From a valid Twilio number
+      }).then((data) => {
+        console.log(data.sid)
+        res.json({
+          'hello': data.sid
+        });
+      })
+
+    })
 
   })
 
