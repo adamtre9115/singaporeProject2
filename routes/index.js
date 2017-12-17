@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../models/index');
+const request = require("request");
 // var client = require('../controller/appController');
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -43,6 +44,7 @@ router.post('/createUser', function (req, res, next) {
 });
 
 router.post('/twilio', function (req, res, next) {
+<<<<<<< HEAD
   var randQuote = require("../controller/appController.js")
   var accountSid = 'ACd5de8965aeec23e5c026e0c1a9e2cb1d'; // Your Account SID from www.twilio.com/console
   var authToken = '0ca4c9f851a87c2f55b30f4515309f03'; // Your Auth Token from www.twilio.com/console
@@ -56,6 +58,46 @@ router.post('/twilio', function (req, res, next) {
   //   })
   //   .then((message) => console.log(message.sid), console.log("yessir"));
   res.redirect("main");
+=======
+  console.log('I WAS POSTING')
+
+  let number = req.body.phoneNum
+
+  // random quote happens asynchronously and is passed into twilio api
+  let randomQuote = (cb) => {
+    request("https://random-quote-generator.herokuapp.com/api/quotes/random", (error, response, body) => {
+      let quote = JSON.parse(body);
+      console.log(quote.quote)
+
+      cb(quote.quote)
+
+
+    });
+  }
+  randomQuote(function (data) {
+
+    // quote is then passed into twilio api and sent as text
+    console.log(data)
+    var accountSid = 'ACd5de8965aeec23e5c026e0c1a9e2cb1d'; // Your Account SID from www.twilio.com/console
+    var authToken = '0ca4c9f851a87c2f55b30f4515309f03'; // Your Auth Token from www.twilio.com/console
+    var twilio = require('twilio');
+    var client = new twilio(accountSid, authToken);
+    console.log(client)
+    client.messages.create({
+      body: data,
+      to: '+1' + number, // Text this number
+      from: '+17045869305', // From a valid Twilio number
+    }).then((data) => {
+      console.log(data.sid)
+      res.json({
+        'hello': data.sid
+      });
+    })
+
+
+  })
+
+>>>>>>> 581bf88c5bc007a66d46f1926555a5b4eb852ddf
 });
 
 module.exports = router;
