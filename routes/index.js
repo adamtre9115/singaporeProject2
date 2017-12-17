@@ -44,21 +44,6 @@ router.post('/createUser', function (req, res, next) {
 });
 
 router.post('/twilio', function (req, res, next) {
-<<<<<<< HEAD
-  var randQuote = require("../controller/appController.js")
-  var accountSid = 'ACd5de8965aeec23e5c026e0c1a9e2cb1d'; // Your Account SID from www.twilio.com/console
-  var authToken = '0ca4c9f851a87c2f55b30f4515309f03'; // Your Auth Token from www.twilio.com/console
-  console.log(randQuote);
-  var twilio = require('twilio');
-  var client = new twilio(accountSid, authToken);
-  // client.messages.create({
-  //     body: req.body.message,
-  //     to: '+1' + req.body.phoneNum, // Text this number
-  //     from: '+17045869305', // From a valid Twilio number
-  //   })
-  //   .then((message) => console.log(message.sid), console.log("yessir"));
-  res.redirect("main");
-=======
   console.log('I WAS POSTING')
 
   let number = req.body.phoneNum
@@ -97,7 +82,6 @@ router.post('/twilio', function (req, res, next) {
 
   })
 
->>>>>>> 581bf88c5bc007a66d46f1926555a5b4eb852ddf
 });
 
 module.exports = router;
