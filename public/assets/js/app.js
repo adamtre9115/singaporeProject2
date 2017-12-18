@@ -1,5 +1,7 @@
-// -------- Log In --------
 $(document).ready(function () {
+
+    // -------- Log In --------
+
     // Grab User Log In & Event to go to main page
     $("#regSubmit").on("click", function (e) {
         // Grab Username
@@ -23,35 +25,35 @@ $(document).ready(function () {
 
 
     // ##### Quick Quote #####
-    $("#submitPersQuilly").on("click", function (e) {
-        console.log("pushed");
+    $("#submitQuickQuilly").on("click", function (e) {
         e.preventDefault();
-        // var message = $("#quillyMsg").val().trim();
+        var message = $("#quillyMsg").val().trim();
         var time = $("#qqTime").val().trim();
         var phone = $("#qqPhone").val().trim();
         // Grab user input for text and time and send data to twilio
         var twilioData = {
-            // message: message,
+            message: message,
             time: time,
             phoneNum: phone
         }
-
-        console.log(twilioData);
         $.post("/twilio", twilioData, function () {});
     });
 
     // ##### Random #####
-    $("#randQuote").on("click", function (e) {
+    $("#searchQuotes").on("click", function (e) {
         e.preventDefault();
         // Grab API quote
+        // var twilioData = {
+        //     time: $("#randTime").val(),
+        //     phoneNum: $("#randPhone").val()
+        // }
         var twilioData = {
-            message: randomQuote,
-            time: $("#randTime").val(),
-            phoneNum: $("#randPhone").val()
+            time: "11:15",
+            phoneNum: "7043908893"
         }
 
         // Send info to twilio
-        $.post("/twilio", twilioData, function () {});
+        $.post("/twilio/rand", twilioData, function () {});
     });
 
     // ### MAYBE ADD LATER ####
@@ -60,13 +62,27 @@ $(document).ready(function () {
 
     // -------- Table --------
 
-    // // Checkbox on side to select quotes
     // Click event for button below table to select the checked quotes
-    // $("#quoteCheck").on("click", function notifTime() {
-    //     // When quotes selected Pop up box for time select
-    //     var checkedQuote = $("***Checkbox.Quote***").val() // ***** Not sure exactly how to work this *****
+    $("#submitPersQuilly").on("click", function (e) {
+        e.preventDefault();
+        var message;
+        var phone = $("#qqPhone").val().trim();
+        var time = $("#qqTime").val().trim();
+        var items = $('.line-through');
 
-    // });
+        // When quotes selected Pop up box for time select
+        for (var i = 0; i < items.length; i++) {
+            console.log(items[i].innerText);
+            message += " " + items[i].innerText;
+        }
+        console.log(message);
+        var twilioData = {
+            message: message,
+            time: time,
+            phoneNum: phone
+        }
+        $.post("/twilio", twilioData, function () {});
+    });
 
 
     // Click event for submit and send info to twilio api 
