@@ -48,7 +48,7 @@ $(document).ready(function () {
         //     phoneNum: $("#randPhone").val()
         // }
         var twilioData = {
-            time: "11:15",
+            time: "19:24",
             phoneNum: "7043908893"
         }
 
@@ -65,7 +65,7 @@ $(document).ready(function () {
     // Click event for button below table to select the checked quotes
     $("#submitPersQuilly").on("click", function (e) {
         e.preventDefault();
-        var message;
+        var message = "";
         var phone = $("#qqPhone").val().trim();
         var time = $("#qqTime").val().trim();
         var items = $('.line-through');
@@ -75,7 +75,8 @@ $(document).ready(function () {
             console.log(items[i].innerText);
             message += " " + items[i].innerText;
         }
-        console.log(message);
+        // console.log(message);
+        // console.log(time);
         var twilioData = {
             message: message,
             time: time,
