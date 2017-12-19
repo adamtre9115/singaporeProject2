@@ -86,6 +86,7 @@ $(document).ready(function () {
     }
     // This function constructs a quote-item row
     function createNewRow(quotes) {
+        console.log("yea");
         var $newInputRow = $(
             [
                 "<p id='generatedQuotes' class='list-group-item quote-item'>",
