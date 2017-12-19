@@ -1,63 +1,48 @@
-<div class=".col-sm-6">
-</div>
-<div class=".col-sm-6" id="image-div"></div>
+<div id="personalPage">
+    <div id="persQuillyContainer">
+        <table id="personalLibraryTable">
+            <caption>My Personal Library</caption>
+            <thead>
+                <tr id="tableHeadings">
+                    <th scope="col">Select</th>
+                    <th scope="col">Never Forget..</th>
+                    <th scope="col">Date Added</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody class="tableTest"></tbody>
+        </table>
 
-<div id="dynamic-container">
-
-    <div class="table-container">
-        <div class="panel panel-default">
-            <div class="panel-heading" id="header">My Personal Library</div>
-
-            <div class="table-responsive">
-                <table class="table table-condensed table-striped" id="personalLibraryTable">
-                    <thead>
-                        <tr>
-                            <th class="text-center">Select</th>
-                            <th class="text-center">"Never Forgets"</th>
-                            <th class="text-center">Date Added</th>
-                            <th class="text-center">Edit</th>
-                            <th class="text-center">Delete</th>
-                        </tr>
-                    </thead>
-                    <tbody class="tableTest">
-                    </tbody>
-                </table>
-                <form id="persQuillyForm" method="post">
-                    <h3 id="persQuillyHeading">Quilly</h3>
-                    <label>
-                        Send Time:
-                        <input id="qqTime" type="time" class="inputField" tabindex="1" placeholder="11:15AM" required autofocus>
-                    </label>
-                    <label>
-                        Send To:
-                        <span id="countryCode">+1
-                            <input id="qqPhone" type="tel" class="inputField" tabindex="2" placeholder="555-555-5555" required>
-                        </span>
-                    </label>
-                    <label>
-                        <button type="submit" id="submitPersQuilly" class="send" data-submit="Quilly Scheduled">Submit Quilly</button>
-                    </label>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <div class="input-container">
-        <div class="panel panel-default">
-            <div class="panel-heading" id="header">Add Custom "Never Forget" to Library</div>
-
-            <form>
-                <div class="form-group">
-                    <label for="NewNeverForget">New "Never Forget"</label>
-                    <input type="text" class="form-control" id="newInput" placeholder="'Either write something worth reading or do something worth writing' -Benjamin Franklin"
-                        required>
-                </div>
-                <button type="submit" class="btn btn-primary" id="addNeverForget">Add</button>
-            </form>
-        </div>
+        <form id="addPersonalForm">
+            <p id="neverForgetTextarea">
+                <label for="" id="addLabel">Add New "Never Forget"</label>
+                <textarea type="text" id="newInput" placeholder="'Either write something worth reading or do something worth writing' -Benjamin Franklin"
+                    required autofocus></textarea>
+            </p>
+            <p id="neverForgetBtn">
+                <label>
+                    <button type="submit" id="addNeverForget">Add to Library</button>
+                </label>
+        </form>
+        <form id="persQuillyForm" method="post">
+            <!-- <h3 id="persQuillyHeading" class="fullWidth">Send a Quilly</h3> -->
+            <p id="persQuillyTimeCont">
+                <label for="">Send Time</label>
+                <input id="persQuillyTime" type="time" class="inputField" tabindex="1" placeholder="11:15AM" required autofocus/>
+            </p>
+            <p id="persQuillyPhoneCont">
+                <label for="">Send To</label>
+                <input id="persQuillyPhone" type="tel" class="inputField" tabindex="2" placeholder="555-555-5555" required />
+            </p>
+            <p id="persQuillySubmit">
+                <label>
+                    <button type="submit" id="submitPersQuilly" class="persQuillyBtn " data-submit="Quilly Scheduled">Schedule Quilly</button>
+                </label>
+            </p>
+        </form>
     </div>
 </div>
-
 
 <script type="text/javascript" src="assets/js/personal.js"></script>
 <script type="text/javascript">
