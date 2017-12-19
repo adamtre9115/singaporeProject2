@@ -48,7 +48,7 @@ $(document).ready(function () {
         //     phoneNum: $("#randPhone").val()
         // }
         var twilioData = {
-            time: "19:24",
+            time: "19:38",
             phoneNum: "7043908893"
         }
 
