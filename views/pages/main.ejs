@@ -1,42 +1,78 @@
 <div id="mainPage">
-    <form action="/personal" method="GET">
-        <button id="personalLibrary" class="mainPageBtn" type="submit">Visit Personal Library</button>
+    <form action="/personal" method="GET" id="personalLibraryContainer">
+        <button id="personalLibrary" class="mainPageBtn" type="submit">
+            <p>Visit</p>
+            <p>Personal</p>
+            <p>Library</p>
+        </button>
     </form>
-    <button id="searchQuotes" class="mainPageBtn" type="submit">Search for Quotes</button>
-    <button id="quickQuilly" class="mainPageBtn btn-front" type="submit">Send Quick Quilly</button>
-    <div id="quickContainer">
+    <button id="quickQuilly" class="mainPageBtn btn-front" type="submit">
+        <p>Send</p>
+        <p>Quick</p>
+        <p>Quilly</p>
+    </button>
+    <button id="randomQuotes" class="mainPageBtn" type="submit">
+        <p>Cue</p>
+        <p>Random</p>
+        <p>Quotes</p>
+    </button>
+    <div id="popupOverlay"></div>
+    <div id="quickQuillyContainer">
         <form id="quickQuillyForm" method="POST">
-            <h3 id="quickHeading">Quick Quilly</h3>
-            <h4 id="quickSubh">In a hurry? Create a Quick Quilly with your custom message!</h4>
-            <label>
-                Send Time:
-                <input id="qqTime" type="text " class="inputField" tabindex="1" placeholder="11:15AM" required autofocus>
-            </label>
-            <label>
-                <br />Send To:
-                <span id="countryCode">+1
-                    <input id="qqPhone" type="tel" class="inputField" tabindex="2" placeholder="555-555-5555" required>
-                </span>
-            </label>
+            <h3 id="quickHeading" class="fullWidth">Quick Quilly</h3>
+            <h4 id="quickSubheading" class="fullWidth">In a hurry? Send a Quick Quilly with your custom message!</h4>
             <p>
+                <label for="">Send Time</label>
+                <input id="quickQuillyTime" type="time" class="inputField" tabindex="1" placeholder="11:15AM" required autofocus/>
+            </p>
+            <p>
+                <label for="">Send To</label>
+                <input id="quickQuillyPhone" type="tel" class="inputField" tabindex="2" placeholder="555-555-5555" required />
+            </p>
+            <p class="fullWidth">
+                <label for="">Message</label>
+                <textarea id="quickQuillyTextarea" tabindex="3" placeholder="You aced that presentation! Grab yourself a cold one ;)" required></textarea>
+            </p>
+            <br />
+            <p class="fullWidth">
                 <label>
-                    Message:
-                    <br />
-                    <textarea id="quillyMsg" class="inputField" tabindex="3" maxlength="180" placeholder="You aced that presentation! Grab yourself a cold one ;)"
-                        required></textarea>
-                    <h5 id="charLeft">
-                        <span id="charCount">180 </span>Characters Remaining</h5>
+                    <button type="submit" id="submitQuickQuilly" class="quickQuillyBtn " data-submit="Quilly Scheduled">Submit</button>
                 </label>
             </p>
-            <label>
-                <button type="submit" id="submitQuickQuilly" class="send" data-submit="Quilly Scheduled">Submit Quilly</button>
-            </label>
+            <p class="fullWidth">
+                <label>
+                    <button type="text" id="cancelQuickQuilly" class="quickQuillyBtn">Cancel</button>
+                </label>
+            </p>
+        </form>
+    </div>
+    <div id="randomQuillyContainer">
+        <form id="randomQuillyForm" method="POST">
+            <h3 id="randomHeading" class="fullWidth">Random Quilly</h3>
+            <h4 id="randomSubheading" class="fullWidth">Care to roll the dice? Send a Random Quilly from our curated collection!</h4>
+            <p>
+                <label for="">Send Time</label>
+                <input id="randTime" type="time" class="inputField" tabindex="1" placeholder="11:15AM" required autofocus/>
+            </p>
+            <p>
+                <label for="">Send To</label>
+                <input id="randPhone" type="tel" class="inputField" tabindex="2" placeholder="555-555-5555" required />
+            </p>
+            <br />
+            <p class="fullWidth">
+                <label>
+                    <button type="submit" id="submitRandomQuilly" class="randomQuillyBtn " data-submit="Quilly Scheduled">Submit</button>
+                </label>
+            </p>
+            <p class="fullWidth">
+                <label>
+                    <button type="text" id="cancelRandomQuilly" class="randomQuillyBtn">Cancel</button>
+                </label>
+            </p>
         </form>
     </div>
 </div>
 
-
-<!-- <div id="quoteDisplay"></div> -->
 
 
 <script type="text/javascript" src="assets/js/main.js"></script>

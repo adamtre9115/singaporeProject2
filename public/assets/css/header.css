@@ -20,3 +20,38 @@ svg>rect {
     -webkit-mask: url(#mask);
     mask: url(#mask);
 } */
+
+
+/* .header-wrapper {
+    border: 15px solid rgba(0, 143, 181, 0.849);
+    margin-top: 30px;
+    margin-left: 80px;
+    margin-right: 80px;
+    background: transparent;
+}
+
+.title-wrapper {
+    margin: 10px;
+    background: rgba(75, 76, 77, 0);
+}
+
+.clip-text {
+    width: 100%;
+    font-size: 6.5em;
+    position: relative;
+    display: inline-block;
+    padding: 30px;
+    text-align: center;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #fff;
+    font-family: 'Megrim', Helvetica, cursive;
+    font-weight: bolder;
+    letter-spacing: 15px;
+    z-index: 2;
+}
+
+.clip-text_alchemy {
+    background-image: url("../images/bookshelf.jpeg");
+    z-index: 3;
+} */

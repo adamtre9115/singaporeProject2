@@ -27,9 +27,9 @@ $(document).ready(function () {
     // ##### Quick Quote #####
     $("#submitQuickQuilly").on("click", function (e) {
         e.preventDefault();
-        var message = $("#quillyMsg").val().trim();
-        var time = $("#qqTime").val().trim();
-        var phone = $("#qqPhone").val().trim();
+        var message = $("#quickQuillyTextarea").val().trim();
+        var time = $("#quickQuillyTime").val().trim();
+        var phone = $("#quickQuillyPhone").val().trim();
         // Grab user input for text and time and send data to twilio
         var twilioData = {
             message: message,
@@ -40,16 +40,12 @@ $(document).ready(function () {
     });
 
     // ##### Random #####
-    $("#searchQuotes").on("click", function (e) {
+    $("#submitRandomQuilly").on("click", function (e) {
         e.preventDefault();
         // Grab API quote
-        // var twilioData = {
-        //     time: $("#randTime").val(),
-        //     phoneNum: $("#randPhone").val()
-        // }
         var twilioData = {
-            time: "19:24",
-            phoneNum: "7043908893"
+            time: $("#randTime").val(),
+            phoneNum: $("#randPhone").val()
         }
 
         // Send info to twilio
@@ -63,11 +59,11 @@ $(document).ready(function () {
     // -------- Table --------
 
     // Click event for button below table to select the checked quotes
-    $("#submitPersQuilly").on("click", function (e) {
+    $("#persQuillySubmit").on("click", function (e) {
         e.preventDefault();
         var message = "";
-        var phone = $("#qqPhone").val().trim();
-        var time = $("#qqTime").val().trim();
+        var phone = $("#persQuillyPhone").val().trim();
+        var time = $("#persQuillyTime").val().trim();
         var items = $('.line-through');
 
         // When quotes selected Pop up box for time select
