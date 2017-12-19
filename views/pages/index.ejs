@@ -24,31 +24,6 @@
         </video>
     </section>
 
-    <!-- <section id="column6" class="vidContainer">
-    <video id="col-6" preload="auto" onended="rotateVid()" autoplay="autoplay" muted="muted" playsinline="playsinline" poster="">
-    </video>
-</section>
-
-<section id="column7" class="vidContainer">
-    <video id="col-7" preload="auto" onended="rotateVid()" autoplay="autoplay" muted="muted" playsinline="playsinline" poster="">
-    </video>
-</section>
-
-<section id="column8" class="vidContainer">
-    <video id="col-8" preload="auto" onended="rotateVid()" autoplay="autoplay" muted="muted" playsinline="playsinline" poster="">
-    </video>
-</section>
-
-<section id="column9" class="vidContainer">
-    <video id="col-9" preload="auto" onended="rotateVid()" autoplay="autoplay" muted="muted" playsinline="playsinline" poster="">
-    </video>
-</section>
-
-<section id="column10" class="vidContainer">
-    <video id="col-10" preload="auto" onended="rotateVid()" autoplay="autoplay" muted="muted" playsinline="playsinline" poster="">
-    </video>
-</section> -->
-
     <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
         <defs>
             <mask id="mask" x="0" y="0" width="100%" height="100%">
@@ -59,23 +34,27 @@
                 <text x="56%" y="35%">l</text>
                 <text x="68%" y="35%">l</text>
                 <text x="80%" y="35%">y</text>
-
             </mask>
         </defs>c
         <rect x="0" y="0" width="100%" height="100%" />
     </svg>
+
+    <marquee direction="right" behavior="loop" scrollamount="3">
+        <div id="quoteDisplay"></div>
+    </marquee>
 
     <div id="loginBox">
         <form id="loginForm" action="/createUser" method="POST">
             <h3 id="loginHeading">LOG IN</h3>
             <input id="regName" type="text" class="inputField" tabindex="1" maxlength="50" placeholder="Username" required autofocus>
             <br />
-            <input id="regPassword" type="text" class="inputField" tabindex="2" maxlength="50" placeholder="Password" required autofocus>
+            <input id="regPassword" type="password" class="inputField" tabindex="2" maxlength="50" placeholder="Password" required autofocus>
             <br />
-            <button type="submit" id="regSubmit" data-submit="...Loggin In">Submit</button>
+            <button type="submit" id="regSubmit" data-submit="...Logging In">Submit</button>
+            <br />
         </form>
     </div>
-
 </div>
+
 
 <script type="text/javascript" src="assets/js/index.js"></script>
