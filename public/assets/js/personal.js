@@ -11,13 +11,10 @@ $(document).ready(function () {
     $(document).on("keyup", ".quote-item", finishEdit);
     $(document).on("blur", ".quote-item", cancelEdit);
     $(document).on("click", "#addNeverForget", insertQuote);
-
     // Our initial quotes array
     var quotes = [];
-
     // Getting quotes from database when page loads
     getQuotes();
-
     // This function resets the quotes displayed with new quotes from the database
     function initializeRows() {
         $quoteContainer.empty();
@@ -27,7 +24,6 @@ $(document).ready(function () {
         }
         $quoteContainer.prepend(rowsToAdd);
     }
-
     // This function grabs quotes from the database and updates the view
     function getQuotes() {
         $.get("/api/quotes", function (data) {
@@ -35,7 +31,6 @@ $(document).ready(function () {
             initializeRows();
         });
     }
-
     // This function deletes a quote when the user clicks the delete button
     function deleteQuote(event) {
         event.stopPropagation();
@@ -45,7 +40,6 @@ $(document).ready(function () {
             url: "/api/quotes/" + id
         }).done(getQuotes);
     }
-
     // This function handles showing the input box for a user to edit a quote
     function editQuote() {
         var currentQuote = $(this).data("quote");
@@ -54,7 +48,6 @@ $(document).ready(function () {
         $(this).children("input.edit").show();
         $(this).children("input.edit").focus();
     }
-
     // Toggles complete status
     function toggleComplete(event) {
         event.stopPropagation();
@@ -62,7 +55,6 @@ $(document).ready(function () {
         quotes.complete = !quotes.complete;
         updateQuote(quotes);
     }
-
     // This function starts updating a quote in the database if a user hits the "Enter Key"
     // While in edit mode
     function finishEdit() {
@@ -73,7 +65,6 @@ $(document).ready(function () {
             updateQuote(updatedQuote);
         }
     }
-
     // This function updates a quote in our database
     function updateQuote(quotes) {
         $.ajax({
@@ -82,7 +73,6 @@ $(document).ready(function () {
             data: quotes
         }).done(getQuotes);
     }
-
     // This function is called whenever a quote item is in edit mode and loses focus
     // This cancels any edits being made
     function cancelEdit() {
@@ -94,31 +84,31 @@ $(document).ready(function () {
             $(this).children("button").show();
         }
     }
-
     // This function constructs a quote-item row
     function createNewRow(quotes) {
         var $newInputRow = $(
             [
-                "<li class='list-group-item quote-item'>",
-                "<span>",
+                "<p id='generatedQuotes' class='list-group-item quote-item'>",
+                "<button id='generatedCheck' class='complete btn btn-default'>✓</button>",
+                "<span id='generatedText'>",
                 quotes.text,
                 "</span>",
-                "<input type='text' class='edit' style='display: none;'>",
-                "<button class='delete btn btn-default'>x</button>",
-                "<button class='complete btn btn-default'>✓</button>",
-                "</li>"
+                "<span id='generatedDate'>",
+                quotes.createdAt,
+                "</span>",
+                "<input id='generatedEdit' type='text' class='edit' style='display: none;'>",
+                "<button id='generatedDelete' class='delete btn btn-default'>x</button>",
+                "</p>"
             ].join("")
         );
-
         $newInputRow.find("button.delete").data("id", quotes.id);
         $newInputRow.find("input.edit").css("display", "none");
         $newInputRow.data("quote", quotes);
         if (quotes.complete) {
-            $newInputRow.find("span").css("text-decoration", "line-through");
+            $newInputRow.find("span").addClass("line-through");
         }
         return $newInputRow;
     }
-
     // This function inserts a new quote into our database and then updates the view
     function insertQuote(event) {
         event.preventDefault();
@@ -126,7 +116,6 @@ $(document).ready(function () {
             text: $newItemInput.val(),
             complete: false,
         };
-
         $.post("/api/quotes", quotes, getQuotes);
         $newItemInput.val("");
     }

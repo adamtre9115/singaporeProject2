@@ -16,44 +16,32 @@ var quickQuillyPopup = $("#quickQuillyContainer");
 var randomQuillyPopup = $("#randomQuillyContainer");
 
 
-function loadQuickForm() {
-    $("#quickQuilly").click(function (event) {
-        quillyOverlay.style.display = block;
-        quickQuillyPopup.style.display = block;
-    });
-}
+$("#quickQuilly").click(function (event) {
+    quillyOverlay.css("display", "block");
+    quickQuillyPopup.css("display", "block");
+});
 
-function submitQuickForm() {
-    $("#submitQuickQuilly").click(function (event) {
-        quillyOverlay.style.display = none;
-        quickQuillyPopup.style.display = none;
-    });
-}
+$("#submitQuickQuilly").click(function (event) {
+    quillyOverlay.css("display", "none");
+    quickQuillyPopup.css("display", "none");
+});
 
-function cancelQuickForm() {
-    $("#cancelQuickQuilly").click(function (event) {
-        quillyOverlay.style.display = none;
-        quickQuillyPopup.style.display = none;
-    });
-}
+$("#cancelQuickQuilly").click(function (event) {
+    quillyOverlay.css("display", "none");
+    quickQuillyPopup.css("display", "none");
+});
 
-function loadRandomForm() {
-    $("#randomQuilly").click(function (event) {
-        quillyOverlay.style.display = block;
-        randomQuillyPopup.style.display = block;
-    });
-}
+$("#randomQuotes").click(function (event) {
+    quillyOverlay.css("display", "block");
+    randomQuillyPopup.css("display", "block");
+});
 
-function submitRandomForm() {
-    $("#submitRandomQuilly").click(function (event) {
-        quillyOverlay.style.display = none;
-        randomQuillyPopup.style.display = none;
-    });
-}
+$("#submitRandomQuilly").click(function (event) {
+    quillyOverlay.css("display", "none");
+    randomQuillyPopup.css("display", "none");
+});
 
-function cancelRandomForm() {
-    $("#cancelRandomQuilly").click(function (event) {
-        quillyOverlay.style.display = none;
-        randomQuillyPopup.style.display = none;
-    });
-}
+$("#cancelRandomQuilly").click(function (event) {
+    quillyOverlay.css("display", "none");
+    randomQuillyPopup.css("display", "none");
+});

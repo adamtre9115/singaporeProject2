@@ -1,8 +1,8 @@
 div#personalPage {
     display: grid;
     grid-template-areas: "... ... ..." "... personalQuilly ..." "... ... ...";
-    grid-template-rows: 1fr 90% 1fr;
-    grid-template-columns: 1fr 90% 1fr;
+    grid-template-rows: 1fr 80% 1fr;
+    grid-template-columns: 1fr 85% 1fr;
     height: 100vh;
     width: 100vw;
     background-color: #ffffff;
@@ -40,7 +40,7 @@ div#personalLibraryTable {
 table caption {
     padding: 0.5em;
     color: rgb(255, 255, 255);
-    text-shadow: 0.07vw 0.07vw rgb(124, 121, 121);
+    text-shadow: 0.07vw 0.07vw rgb(58, 57, 57);
     text-align: center;
     font-size: 1.3em;
     font-weight: bolder;
@@ -50,7 +50,7 @@ table caption {
 }
 
 table th {
-    color: rgba(202, 199, 199, 0.603);
+    color: rgba(255, 255, 255, 0.836);
     background-color: rgb(255, 69, 63);
     text-shadow: 0.05vw 0.05vw rgb(90, 87, 87);
     border: 0;
@@ -272,4 +272,8 @@ p#persQuillySubmit {
     font-weight: bolder;
     outline: 0;
     border-radius: 50%;
+}
+
+.line-through {
+    text-decoration: line-through;
 }

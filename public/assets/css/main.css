@@ -90,7 +90,7 @@ button#randomQuotes {
     height: 100vh;
     width: 100vw;
     background-color: rgba(0, 0, 0, 0.575);
-    display: block;
+    display: none;
     z-index: 900;
 }
 
@@ -191,7 +191,7 @@ input#quickQuillyPhone.inputField {
     padding: 0.5em;
     margin-bottom: 0.5em;
     width: 100%;
-    height: 80%;
+    height: 10%;
     line-height: 2em;
     font-size: 1em;
     outline: 0;
@@ -248,7 +248,7 @@ div#randomQuillyContainer {
     border: 0.03vw solid rgba(49, 49, 49, 0.664);
     position: fixed;
     box-shadow: 0 1vw 2vw rgba(146, 146, 146, 0.6);
-    display: block;
+    display: none;
     z-index: 1000;
 }
 
@@ -366,9 +366,4 @@ input#randomQuillyPhone.inputField {
     font-weight: bolder;
     outline: 0;
     border-radius: 50%;
-
-}
-
-.line-through {
-    text-decoration: line-through;
 }

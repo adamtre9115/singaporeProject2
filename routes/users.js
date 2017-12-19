@@ -6,13 +6,15 @@ var jwt = require('jsonwebtoken');
 const SECRET = "supersecretkey";
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   res.send('respond with a resource');
 });
 
-router.post('/createUser', function(req, res) {
+router.post('/createUser', function (req, res) {
   db.users.findOne({
-    where: {userName: req.body.username}
+    where: {
+      userName: req.body.username
+    }
   }).then((user) => {
 
     if (!user) {
@@ -44,7 +46,7 @@ router.post('/createUser', function(req, res) {
 
 });
 
-router.get('/logout', function(req, res) {
+router.get('/logout', function (req, res) {
 
   res.cookie('auth', '', {
     expires: new Date(0),
@@ -58,7 +60,7 @@ router.get('/logout', function(req, res) {
 });
 
 
-router.get('/profile', authCheck, function(req, res) {
+router.get('/profile', authCheck, function (req, res) {
 
   db.users.findById(req.decoded.id).then((user) => {
 
@@ -76,7 +78,7 @@ function authCheck(req, res, next) {
 
   var token = req.cookies.auth;
 
-  jwt.verify(token, SECRET, function(err, decoded) {
+  jwt.verify(token, SECRET, function (err, decoded) {
 
     if (err) {
       return res.status(401).json({
