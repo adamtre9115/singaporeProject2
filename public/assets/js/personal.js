@@ -51,7 +51,8 @@ $(document).ready(function () {
     // Toggles complete status
     function toggleComplete(event) {
         event.stopPropagation();
-        var quotes = $(this).parent().data("quote");
+        console.log($(this).parent().parent().data("quote"));
+        var quotes = $(this).parent().parent().data("quote");
         quotes.complete = !quotes.complete;
         updateQuote(quotes);
     }
@@ -86,20 +87,40 @@ $(document).ready(function () {
     }
     // This function constructs a quote-item row
     function createNewRow(quotes) {
-        console.log("yea");
+        console.log(quotes);
+        // var $newInputRow = $(
+        //     [
+        //         "<p id='generatedQuotes' class='list-group-item quote-item'>",
+        //         "<button id='generatedCheck' class='complete btn btn-default'>✓</button>",
+        //         "<span id='generatedText'>",
+        //         quotes.text,
+        //         "</span>",
+        //         "<span id='generatedDate'>",
+        //         quotes.createdAt,
+        //         "</span>",
+        //         "<input id='generatedEdit' type='text' class='edit' style='display: none;'>",
+        //         "<button id='generatedDelete' class='delete btn btn-default'>x</button>",
+        //         "</p>"
+        //     ].join("")
         var $newInputRow = $(
             [
-                "<p id='generatedQuotes' class='list-group-item quote-item'>",
+                "<tr id='generatedQuotes' class='list-group-item quote-item'>",
+                "<td>",
                 "<button id='generatedCheck' class='complete btn btn-default'>✓</button>",
+                "</td>",
+                "<td>",
                 "<span id='generatedText'>",
                 quotes.text,
-                "</span>",
-                "<span id='generatedDate'>",
-                quotes.createdAt,
+                "</td>",
                 "</span>",
                 "<input id='generatedEdit' type='text' class='edit' style='display: none;'>",
+                "<td>",
+                quotes.createdAt,
+                "</td>",
+                "<td>",
                 "<button id='generatedDelete' class='delete btn btn-default'>x</button>",
-                "</p>"
+                "</td>",
+                "</tr>"
             ].join("")
         );
         $newInputRow.find("button.delete").data("id", quotes.id);

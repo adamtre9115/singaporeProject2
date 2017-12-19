@@ -1,18 +1,23 @@
-// // require request npm package
-// const request = require("request");
+// var mysql = require("mysql");
 
-// // pull random quote from quotes api
-// var randomQuote = request("https://random-quote-generator.herokuapp.com/api/quotes/random", (error, response, body) => {
+// if (process.env.JAWSDB_URL) {
+//     connection = mysql.createConnection(process.env.JAWSDB_URL);
+// } else {
+//     connection = mysql.createConnection({
+//         port: 8889,
+//         host: "localhost",
+//         user: "root",
+//         password: "root",
+//         database: "quotes_db"
+//     });
+// }
 
-//     if (!error && response.statusCode === 200) {
-
-//         var body = JSON.parse(body);
-//         // console.log(body.quote + " ~ " + body.author);
-//         var newQuote = body.quote + " ~ " + body.author;
-//         return newQuote;
-//     } else {
-//         console.log("We have an error with the quotes!");
+// connection.connect(function (err) {
+//     if (err) {
+//         console.error("error connecting: " + err.stack);
+//         return;
 //     }
+//     console.log("connected as id " + connection.threadId);
 // });
 
-// module.exports = randomQuote;
+// module.exports = connection;
