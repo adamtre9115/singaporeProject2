@@ -14,6 +14,7 @@ $(document).ready(function () {
             userName: userName,
             password: password
         }
+        console.log(userInfo);
         // Post To SQL
         $.post("/createUser", userInfo, function () {});
     });
@@ -72,7 +73,6 @@ $(document).ready(function () {
             message += " " + items[i].innerText;
         }
         // console.log(message);
-        // console.log(time);
         var twilioData = {
             message: message,
             time: time,

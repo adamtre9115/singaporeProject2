@@ -13,7 +13,7 @@ router.get('/', function (req, res, next) {
 router.post('/createUser', function (req, res) {
   db.users.findOne({
     where: {
-      userName: req.body.username
+      userName: req.body.userName
     }
   }).then((user) => {
 
@@ -40,7 +40,7 @@ router.post('/createUser', function (req, res) {
       secure: false
     });
 
-    res.status(200).json(user);
+    // res.status(200).json(user);
 
   })
 

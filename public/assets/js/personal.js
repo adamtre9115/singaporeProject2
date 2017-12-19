@@ -43,7 +43,8 @@ $(document).ready(function () {
     // This function handles showing the input box for a user to edit a quote
     function editQuote() {
         var currentQuote = $(this).data("quote");
-        $(this).children().hide();
+        console.log($(this).children());
+        $(this).children().children("span").hide();
         $(this).children("input.edit").val(currentQuote.text);
         $(this).children("input.edit").show();
         $(this).children("input.edit").focus();
@@ -51,7 +52,6 @@ $(document).ready(function () {
     // Toggles complete status
     function toggleComplete(event) {
         event.stopPropagation();
-        console.log($(this).parent().parent().data("quote"));
         var quotes = $(this).parent().parent().data("quote");
         quotes.complete = !quotes.complete;
         updateQuote(quotes);
@@ -79,29 +79,15 @@ $(document).ready(function () {
     function cancelEdit() {
         var currentQuote = $(this).data("quotes");
         if (currentQuote) {
-            $(this).children().hide();
+            $(this).children().children("span").hide();
             $(this).children("input.edit").val(currentQuote.text);
-            $(this).children("span").show();
+            $(this).children().children("span").show();
             $(this).children("button").show();
         }
     }
     // This function constructs a quote-item row
     function createNewRow(quotes) {
         console.log(quotes);
-        // var $newInputRow = $(
-        //     [
-        //         "<p id='generatedQuotes' class='list-group-item quote-item'>",
-        //         "<button id='generatedCheck' class='complete btn btn-default'>✓</button>",
-        //         "<span id='generatedText'>",
-        //         quotes.text,
-        //         "</span>",
-        //         "<span id='generatedDate'>",
-        //         quotes.createdAt,
-        //         "</span>",
-        //         "<input id='generatedEdit' type='text' class='edit' style='display: none;'>",
-        //         "<button id='generatedDelete' class='delete btn btn-default'>x</button>",
-        //         "</p>"
-        //     ].join("")
         var $newInputRow = $(
             [
                 "<tr id='generatedQuotes' class='list-group-item quote-item'>",
@@ -115,7 +101,7 @@ $(document).ready(function () {
                 "</span>",
                 "<input id='generatedEdit' type='text' class='edit' style='display: none;'>",
                 "<td>",
-                quotes.createdAt,
+                quotes.createdAt.split("T").reverse().pop(),
                 "</td>",
                 "<td>",
                 "<button id='generatedDelete' class='delete btn btn-default'>x</button>",
