@@ -6,7 +6,7 @@
             <p>Library</p>
         </button>
     </form>
-    <button id="quickQuilly" class="mainPageBtn btn-front" type="submit">
+    <button id="quickQuilly" class="mainPageBtn" type="submit">
         <p>Send</p>
         <p>Quick</p>
         <p>Quilly</p>
@@ -23,11 +23,11 @@
             <h4 id="quickSubheading" class="fullWidth">In a hurry? Send a Quick Quilly with your custom message!</h4>
             <p>
                 <label for="">Send Time</label>
-                <input id="quickQuillyTime" type="time" class="inputField" tabindex="1" placeholder="11:15AM" required autofocus/>
+                <input id="quickQuillyTime" type="time" class="mainInputField" tabindex="1" placeholder="11:15 AM" required autofocus/>
             </p>
             <p>
                 <label for="">Send To</label>
-                <input id="quickQuillyPhone" type="tel" class="inputField" tabindex="2" placeholder="555-555-5555" required />
+                <input id="quickQuillyPhone" type="tel" class="mainInputField" tabindex="2" placeholder="5555555555" required />
             </p>
             <p class="fullWidth">
                 <label for="">Message</label>
@@ -36,7 +36,7 @@
             <br />
             <p class="fullWidth">
                 <label>
-                    <button type="submit" id="submitQuickQuilly" class="quickQuillyBtn " data-submit="Quilly Scheduled">Submit</button>
+                    <button type="submit" id="submitQuickQuilly" class="quickQuillyBtn" data-submit="Quilly Scheduled">Submit</button>
                 </label>
             </p>
             <p class="fullWidth">
@@ -52,11 +52,11 @@
             <h4 id="randomSubheading" class="fullWidth">Care to roll the dice? Send a Random Quilly from our curated collection!</h4>
             <p>
                 <label for="">Send Time</label>
-                <input id="randTime" type="time" class="inputField" tabindex="1" placeholder="11:15AM" required autofocus/>
+                <input id="randTime" type="time" class="mainInputField" tabindex="1" placeholder="11:15 AM" required autofocus/>
             </p>
             <p>
                 <label for="">Send To</label>
-                <input id="randPhone" type="tel" class="inputField" tabindex="2" placeholder="555-555-5555" required />
+                <input id="randPhone" type="tel" class="mainInputField" tabindex="2" placeholder="5555555555" required />
             </p>
             <br />
             <p class="fullWidth">
@@ -70,6 +70,10 @@
                 </label>
             </p>
         </form>
+    </div>
+    <div id="mainLogoContainer">
+        <img id="mainLogoImage" src="/assets/images/quill_icon.png" />
+        <p id="mainLogoName">Quilly</p>
     </div>
 </div>
 

@@ -1,57 +1,23 @@
-/* svg {
-    height: 100vh;
-    width: 100vw;
+div#quoteDisplay {
+    font-family: "Federo", Helvetica, sans-serif;
+    color: rgb(172, 169, 169);
+    white-space: nowrap;
+    font-size: 2.5vh;
+    letter-spacing: 0.5vw;
+    animation: marquee 35s linear infinite;
+    z-index: 10;
+    overflow: hidden;
     position: absolute;
+    bottom: 5%;
+    right: 0;
+    text-shadow: 0.1vw 0.1vw rgb(31, 31, 31);
 }
 
-svg text {
-    text-anchor: middle;
-    font-size: 15em;
-    font-family: 'Megrim', cursive;
-    font-weight: bold;
+@keyframes marquee {
+    from {
+        left: 140%;
+    }
+    to {
+        left: -100%;
+    }
 }
-
-svg mask rect {
-    fill: rgb(247, 217, 210);
-}
-
-svg>rect {
-    fill: rgba(0, 0, 0, 0.685);
-    -webkit-mask: url(#mask);
-    mask: url(#mask);
-} */
-
-
-/* .header-wrapper {
-    border: 15px solid rgba(0, 143, 181, 0.849);
-    margin-top: 30px;
-    margin-left: 80px;
-    margin-right: 80px;
-    background: transparent;
-}
-
-.title-wrapper {
-    margin: 10px;
-    background: rgba(75, 76, 77, 0);
-}
-
-.clip-text {
-    width: 100%;
-    font-size: 6.5em;
-    position: relative;
-    display: inline-block;
-    padding: 30px;
-    text-align: center;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: #fff;
-    font-family: 'Megrim', Helvetica, cursive;
-    font-weight: bolder;
-    letter-spacing: 15px;
-    z-index: 2;
-}
-
-.clip-text_alchemy {
-    background-image: url("../images/bookshelf.jpeg");
-    z-index: 3;
-} */

@@ -1,7 +1,7 @@
 div#mainPage {
     display: grid;
     grid-template-areas: "... ... ... ... ..." "... personalLibrary quickQuilly randomQuotes ..." "... ... ... ... ...";
-    grid-template-rows: 1fr 52% 1fr;
+    grid-template-rows: 1fr 53% 1fr;
     grid-template-columns: 1% repeat(3, 1fr) 1%;
     grid-row-gap: 4%;
     grid-column-gap: 4%;
@@ -23,7 +23,6 @@ button.mainPageBtn {
     line-height: 2.1em;
     color: rgb(255, 255, 255);
     text-shadow: 0 0 0.1em rgb(131, 131, 131), 0 0 0.2em rgb(131, 131, 131), 0 0 0.4em rgb(131, 131, 131), 0 0 0.5em rgb(131, 131, 131), 0 0 0.6em rgb(131, 131, 131), 0 0 0.65em rgb(131, 131, 131), 0 0 0.7em rgb(131, 131, 131);
-    /* text-shadow: 0.04vw 0.04vw rgb(51, 50, 50); */
     text-align: center;
     text-transform: uppercase;
 }
@@ -91,7 +90,7 @@ button#randomQuotes {
     width: 100vw;
     background-color: rgba(0, 0, 0, 0.575);
     display: none;
-    z-index: 900;
+    z-index: 100;
 }
 
 div#quickQuillyContainer {
@@ -99,13 +98,15 @@ div#quickQuillyContainer {
     width: 70vw;
     top: 5%;
     left: 15%;
-    background-color: rgba(2, 2, 2, 0.877);
     color: rgb(255, 255, 255);
     border: 0.03vw solid rgba(49, 49, 49, 0.664);
     position: fixed;
     box-shadow: 0 1vw 2vw rgba(146, 146, 146, 0.6);
     display: none;
-    z-index: 1000;
+    z-index: 200;
+    /* background-color: rgba(2, 2, 2, 0.877); */
+    background-color: #000000;
+    background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 0h2v20H9V0zm25.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm-20 20l1.732 1-10 17.32-1.732-1 10-17.32zM58.16 4.134l1 1.732-17.32 10-1-1.732 17.32-10zm-40 40l1 1.732-17.32 10-1-1.732 17.32-10zM80 9v2H60V9h20zM20 69v2H0v-2h20zm79.32-55l-1 1.732-17.32-10L82 4l17.32 10zm-80 80l-1 1.732-17.32-10L2 84l17.32 10zm96.546-75.84l-1.732 1-10-17.32 1.732-1 10 17.32zm-100 100l-1.732 1-10-17.32 1.732-1 10 17.32zM38.16 24.134l1 1.732-17.32 10-1-1.732 17.32-10zM60 29v2H40v-2h20zm19.32 5l-1 1.732-17.32-10L62 24l17.32 10zm16.546 4.16l-1.732 1-10-17.32 1.732-1 10 17.32zM111 40h-2V20h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zM40 49v2H20v-2h20zm19.32 5l-1 1.732-17.32-10L42 44l17.32 10zm16.546 4.16l-1.732 1-10-17.32 1.732-1 10 17.32zM91 60h-2V40h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm24.026 3.294l1 1.732-17.32 10-1-1.732 17.32-10zM39.32 74l-1 1.732-17.32-10L22 64l17.32 10zm16.546 4.16l-1.732 1-10-17.32 1.732-1 10 17.32zM71 80h-2V60h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm24.026 3.294l1 1.732-17.32 10-1-1.732 17.32-10zM120 89v2h-20v-2h20zm-84.134 9.16l-1.732 1-10-17.32 1.732-1 10 17.32zM51 100h-2V80h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm24.026 3.294l1 1.732-17.32 10-1-1.732 17.32-10zM100 109v2H80v-2h20zm19.32 5l-1 1.732-17.32-10 1-1.732 17.32 10zM31 120h-2v-20h2v20z' fill='%23ffffff' fill-opacity='0.06' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
 
 form#quickQuillyForm {
@@ -115,7 +116,7 @@ form#quickQuillyForm {
     grid-row-gap: 1%;
     height: 100%;
     width: 100%;
-    padding: 4em;
+    padding: 3em;
     position: relative;
     font-family: "Federo", Helvetica, sans-serif;
 }
@@ -161,21 +162,21 @@ input {
     letter-spacing: 0.5em;
 }
 
-input#quickQuillyTime.inputField {
+input#quickQuillyTime.mainInputField {
     margin: 0;
     width: 100%;
     height: 50%;
     padding: 0.5em;
 }
 
-input#quickQuillyPhone.inputField {
+input#quickQuillyPhone.mainInputField {
     margin: 0;
     width: 100%;
     height: 50%;
     padding: 0.5em;
 }
 
-.inputField {
+.mainInputField {
     border: 0;
     font-size: 1em;
     outline: 0;
@@ -191,7 +192,7 @@ input#quickQuillyPhone.inputField {
     padding: 0.5em;
     margin-bottom: 0.5em;
     width: 100%;
-    height: 10%;
+    height: 100%;
     line-height: 2em;
     font-size: 1em;
     outline: 0;
@@ -243,13 +244,15 @@ div#randomQuillyContainer {
     width: 60vw;
     top: 15%;
     left: 20%;
-    background-color: rgba(2, 2, 2, 0.877);
     color: rgb(255, 255, 255);
     border: 0.03vw solid rgba(49, 49, 49, 0.664);
     position: fixed;
     box-shadow: 0 1vw 2vw rgba(146, 146, 146, 0.6);
     display: none;
-    z-index: 1000;
+    z-index: 200;
+    /* background-color: rgba(2, 2, 2, 0.877); */
+    background-color: #000000;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='126' height='84' viewBox='0 0 126 84'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M126 83v1H0v-2h40V42H0v-2h40V0h2v40h40V0h2v40h40V0h2v83zm-2-1V42H84v40h40zM82 42H42v40h40V42zm-50-6a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM8 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm96 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-42 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm30-12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM20 54a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm12 24a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM8 54a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm24 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM8 78a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm12 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm54 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM50 54a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm24 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM50 78a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm54-12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm12 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM92 54a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm24 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM92 78a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm24-42a4 4 0 1 1 0-8 4 4 0 0 1 0 8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 form#randomQuillyForm {
@@ -306,21 +309,21 @@ input {
     margin-bottom: 0.5em;
 }
 
-input#randomQuillyTime.inputField {
+input#randTime.mainInputField {
     margin: 0;
     width: 100%;
     height: 50%;
     padding: 0.5em;
 }
 
-input#randomQuillyPhone.inputField {
+input#randPhone.mainInputField {
     margin: 0;
     width: 100%;
     height: 50%;
     padding: 0.5em;
 }
 
-.inputField {
+.mainInputField {
     border: 0;
     font-size: 1em;
     outline: 0;
@@ -366,4 +369,23 @@ input#randomQuillyPhone.inputField {
     font-weight: bolder;
     outline: 0;
     border-radius: 50%;
+}
+
+div#mainLogoContainer {
+    position: fixed;
+    padding: 1em;
+    text-align: center;
+}
+
+img#mainLogoImage {
+    height: 3em;
+    width: 3em;
+}
+
+p#mainLogoName {
+    font-family: "Megrim", Helvetica, sans-serif;
+    color: black;
+    font-weight: bold;
+    letter-spacing: 0.2em;
+    text-transform: lowercase;
 }

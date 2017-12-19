@@ -1,26 +1,53 @@
 <div id="indexPage">
+
+    <div id="loadingOverlay">
+        <div id="loadingContainer">
+            <div class="loadingBlock"></div>
+            <div class="loadingBlock"></div>
+            <div class="loadingBlock"></div>
+            <div class="loadingBlock"></div>
+            <div class="loadingBlock"></div>
+            <div class="loadingBlock"></div>
+            <div class="loadingBlock"></div>
+            <div class="loadingBlock"></div>
+            <div class="loadingBlock"></div>
+            <div class="loadingBlock"></div>
+            <div class="loadingBlock"></div>
+            <div class="loadingBlock"></div>
+            <div class="loadingBlock"></div>
+            <div class="loadingBlock"></div>
+            <div class="loadingBlock"></div>
+            <div class="loadingBlock"></div>
+        </div>
+    </div>
+
     <section id="column1" class="vidContainer">
-        <video id="col-1" preload="auto" onended="rotateVid()" autoplay="autoplay" muted="muted" playsinline="playsinline" poster="">
+        <video id="col-1" preload="auto" loop="loop" autoplay="autoplay" muted="muted" playsinline="playsinline" poster="assets/images/snow_landscape_poster.png">
+            <source src="assets/images/snow_landscape.mp4" type="video/mp4">
         </video>
     </section>
 
     <section id="column2" class="vidContainer">
-        <video id="col-2" preload="auto" onended="rotateVid()" autoplay="autoplay" muted="muted" playsinline="playsinline" poster="">
+        <video id="col-2" preload="auto" loop="loop" autoplay="autoplay" muted="muted" playsinline="playsinline" poster="assets/images/colorful_town_poster.png">
+            <source src="assets/images/colorful_town.mp4" type="video/mp4">
         </video>
     </section>
 
     <section id="column3" class="vidContainer">
-        <video id="col-3" preload="auto" onended="rotateVid()" autoplay="autoplay" muted="muted" playsinline="playsinline" poster="">
+        <video id="col-3" preload="auto" loop="loop" autoplay="autoplay" muted="muted" playsinline="playsinline" poster="assets/images/blurred_lights_poster.png">
+            <source src="assets/images/blurred_lights.mp4" type="video/mp4">
         </video>
     </section>
 
     <section id="column4" class="vidContainer">
-        <video id="col-4" preload="auto" onended="rotateVid()" autoplay="autoplay" muted="muted" playsinline="playsinline" poster="">
+        <video id="col-4" preload="auto" loop="loop" autoplay="autoplay" muted="muted" playsinline="playsinline" poster="assets/images/tropical_scene_poster.png">
+            <source src="assets/images/tropical_scene.mp4" type="video/mp4">
         </video>
     </section>
 
     <section id="column5" class="vidContainer">
-        <video id="col-5" preload="auto" onended="rotateVid()" autoplay="autoplay" muted="muted" playsinline="playsinline" poster="">
+        <video id="col-5" preload="auto" loop="loop" autoplay="autoplay" muted="muted" playsinline="playsinline" poster="assets/images/big_sky_poster.png">
+            <source src="assets/images/big_sky.mp4" type="video/mp4">
         </video>
     </section>
 
@@ -35,20 +62,17 @@
                 <text x="68%" y="35%">l</text>
                 <text x="80%" y="35%">y</text>
             </mask>
-        </defs>c
+        </defs>
         <rect x="0" y="0" width="100%" height="100%" />
     </svg>
-
-    <marquee direction="right" behavior="loop" scrollamount="3">
-        <div id="quoteDisplay"></div>
-    </marquee>
 
     <div id="loginBox">
         <form id="loginForm" action="/createUser" method="POST">
             <h3 id="loginHeading">LOG IN</h3>
-            <input id="regName" type="text" class="inputField" tabindex="1" maxlength="50" placeholder="Username" required autofocus>
+            <input id="regName" type="text" class="loginInputField" tabindex="1" maxlength="50" placeholder="Username" required autofocus>
             <br />
-            <input id="regPassword" type="password" class="inputField" tabindex="2" maxlength="50" placeholder="Password" required autofocus>
+            <input id="regPassword" type="password" class="loginInputField" tabindex="2" maxlength="50
+               " placeholder="Password" required autofocus>
             <br />
             <button type="submit" id="regSubmit" data-submit="...Logging In">Submit</button>
             <br />
