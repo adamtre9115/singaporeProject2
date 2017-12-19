@@ -366,4 +366,9 @@ input#randomQuillyPhone.inputField {
     font-weight: bolder;
     outline: 0;
     border-radius: 50%;
+
+}
+
+.line-through {
+    text-decoration: line-through;
 }

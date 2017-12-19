@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var ejsLayouts = require("express-ejs-layouts");
 
 var index = require('./routes/index');
+var users = require('./routes/users');
 const db = require("./models");
 var app = express();
 const port = process.env.PORT || 3000;
